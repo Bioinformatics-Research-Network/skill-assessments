@@ -1,14 +1,22 @@
-# Mini-Projects for Training
+# Miniproject: Data Science Web Development
 
-This repository contains the instructions and data necessary for completing the training prerequisits for each project. Each folder is named after the training it provides -- complete the instructions in the README file within each relevant folder and then send Henry the results when you are done. 
+Programming languages: **Python** (and **JavaScript** if needed)
 
-If you run into any issues, feel free to reach out for help over Slack to the other students or to Henry. Once you complete training, please be available to help others! We cannot succeed without working together. 
+Create and deploy a dash application for exploring the gapminder dataset:
 
-Other resources for getting help:
+1. Get the Gapminder dataset (provided in this repo)
+2. Create the basic dash application to display the dataset
+3. Add callbacks that allow the user to:
+- Switch from linear to log scale on the axes
+- Change the data type displayed in the plot
+- Change the year being shown
+4. Improve the layout and UI so that it is easy and relatively intuitive to use
+5. Deploy your app (using a free account) to Heroku and send Henry the link. 
 
-DataCamp (let Henry know if you need an account): https://www.datacamp.com/
-Biostars: https://www.biostars.org/
-Bioconductor: https://support.bioconductor.org/
-Seq-answers: http://seqanswers.com/
-Stack overflow: https://stackoverflow.com/
+Here is an example: https://dash-app-test-hm.herokuapp.com/
 
+Resources for learning Dash:
+
+Dash tutorial: https://dash.plotly.com/installation
+
+DataCamp tutorial: https://www.datacamp.com/community/tutorials/learn-build-dash-python
