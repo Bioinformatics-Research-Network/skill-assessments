@@ -12,7 +12,7 @@ Select two ChIP-Seq datasets from ENCODE – download the peaks for both, in ‘
 6. What pathways are shared between these datasets? What pathways differ? What is your interpretation of these results? What future directions could you propose to follow up on these findings? (No right answers to these questions, just important to think through this part).
 
 Useful resources for learning this analysis approach:
-ChIP-Seq tutorial on ChIPseeker: https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html
-ChIP-Seq tutorial on ChIPpeakAnno: https://www.bioconductor.org/packages/release/bioc/html/ChIPpeakAnno.html
+1. ChIP-Seq tutorial on ChIPseeker: https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html
+2. ChIP-Seq tutorial on ChIPpeakAnno: https://www.bioconductor.org/packages/release/bioc/html/ChIPpeakAnno.html
 
 
