@@ -1,14 +1,18 @@
-# Mini-Projects for Training
+# Miniproject: Machine Learning
 
-This repository contains the instructions and data necessary for completing the training prerequisits for each project. Each folder is named after the training it provides -- complete the instructions in the README file within each relevant folder and then send Henry the results when you are done. 
+Programming languages: **R** or **Python**
 
-If you run into any issues, feel free to reach out for help over Slack to the other students or to Henry. Once you complete training, please be available to help others! We cannot succeed without working together. 
+All projects which require Machine Learning training should do the following:
 
-Other resources for getting help:
+1. Sign up for Kaggle and start the Titanic challenge from Kaggle (https://www.kaggle.com/c/titanic)
+2. Perform exploratory data analysis (EDA) using Unsupervised machine learning approaches (see below). 
+3. Create a classification model using Supervised machine learning approaches (see below). 
+4. Refine the model until you have > 70% accuracy
+5. Subit your final predictions to Kaggle and then send Henry your notebook. 
 
-DataCamp (let Henry know if you need an account): https://www.datacamp.com/
-Biostars: https://www.biostars.org/
-Bioconductor: https://support.bioconductor.org/
-Seq-answers: http://seqanswers.com/
-Stack overflow: https://stackoverflow.com/
+Depending on the projects you are interested in joining, you should spend more or less time on the following:
 
+1. Unsupervised learning (e.g., dimensionality reduction, manifold learning, clustering, etc)
+2. Supervised learning (e.g., Classification/Regression models, parameter tuning, cross-validation, etc)
+
+DataCamp (https://learn.datacamp.com/) has several supervised/unsupervised machine learning courses for learning these approaches! If you don't have access yet, just let Henry know and he will add you to the group.
