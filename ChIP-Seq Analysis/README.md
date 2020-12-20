@@ -14,5 +14,4 @@ Select two ChIP-Seq datasets from ENCODE – download the peaks for both, in ‘
 Useful resources for learning this analysis approach:
 1. ChIP-Seq tutorial on ChIPseeker: https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html
 2. ChIP-Seq tutorial on ChIPpeakAnno: https://www.bioconductor.org/packages/release/bioc/html/ChIPpeakAnno.html
-
-
+3. HBC Training: https://hbctraining.github.io/Intro-to-ChIPseq/schedule/2-day.html
