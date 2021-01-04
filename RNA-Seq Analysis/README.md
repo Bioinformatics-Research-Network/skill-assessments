@@ -14,7 +14,7 @@ Then, do the following:
 3. Create a Volcano Plot
 4. Create a heatmap showing the top 20 over- and under-expressed DEGs
 5. Do GSEA on the results and plot the top 5 pathways
-6. Present the results in notebook form (either Rmarkdown or jupyter notebook).
+6. Present the results in notebook form (either Rmarkdown or jupyter notebook). Make sure to export your notebook to HTML and that it comes out looking correctly -- example of an HTML export of RMarkdown: https://static-html-pages.s3-us-west-2.amazonaws.com/EUFA_BRCA2_Project/EUFA_BRCA2_Report.html
 7. What do the results tell you about your conditions of interest? What is the biological meaning of these results? What future experiments could you perform? (These questions don't have an exact right answer, just about thinking through the meaning of the results). 
 
 Useful resources for learning this analysis approach:
