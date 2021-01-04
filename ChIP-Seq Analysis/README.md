@@ -8,7 +8,7 @@ Select two ChIP-Seq datasets from ENCODE – download the peaks for both, in ‘
 2. Make a metaplot of your two datasets around the TSS. (This is the `plotAvgProf()` function in `ChIPSeeker`, for reference)
 3. Annotate the peaks for genomic features such as intron, exon, 3’UTR, etc and compare the annotations between your two datasets.
 4. Assign peaks to genes – then perform pathway enrichment.
-5. Present the results in notebook form (either Rmarkdown or jupyter notebook).
+5. Present the results in notebook form (either Rmarkdown or jupyter notebook). Make sure to export your notebook to HTML and that it comes out looking correctly -- example of an HTML export of RMarkdown: https://static-html-pages.s3-us-west-2.amazonaws.com/EUFA_BRCA2_Project/EUFA_BRCA2_Report.html
 6. What pathways are shared between these datasets? What pathways differ? What is your interpretation of these results? What future directions could you propose to follow up on these findings? (No right answers to these questions, just important to think through this part).
 
 Useful resources for learning this analysis approach:
