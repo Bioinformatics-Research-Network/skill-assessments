@@ -15,3 +15,11 @@ Useful resources for learning this analysis approach:
 1. ChIP-Seq tutorial on ChIPseeker: https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html
 2. ChIP-Seq tutorial on ChIPpeakAnno: https://www.bioconductor.org/packages/release/bioc/html/ChIPpeakAnno.html
 3. HBC Training: https://hbctraining.github.io/Intro-to-ChIPseq/schedule/2-day.html
+
+Bonus:
+
+Where to find the peak file on Encode --
+
+![Alt Text](https://media.giphy.com/media/aoV0nOJWRb7CSTQejM/giphy.gif)
+
+
