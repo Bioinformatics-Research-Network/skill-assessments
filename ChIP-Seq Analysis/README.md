@@ -16,6 +16,8 @@ Useful resources for learning this analysis approach:
 2. ChIP-Seq tutorial on ChIPpeakAnno: https://www.bioconductor.org/packages/release/bioc/html/ChIPpeakAnno.html
 3. HBC Training: https://hbctraining.github.io/Intro-to-ChIPseq/schedule/2-day.html
 
+**Note**: Don't forget to make sure that your annotations (TxDb) and your peaks (.bed file) are both the same genome assembly. (hg38 is the same as GRCh38... and hg38 is NOT the same as hg19). 
+
 Bonus:
 
 Where to find the peak file on Encode --
