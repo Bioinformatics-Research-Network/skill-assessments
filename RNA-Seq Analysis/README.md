@@ -18,7 +18,7 @@ Then, do the following:
 7. What do the results tell you about your conditions of interest? What is the biological meaning of these results? What future experiments could you perform? (These questions don't have an exact right answer, just about thinking through the meaning of the results). 
 
 Useful resources for learning this analysis approach:
-1. BIG Club’s RNA-Seq workshop (goes through all the required tasks in weeks 6-9): https://uthscsa.box.com/s/bq936da9strq5u8g42y8sc9ppj3mq1jt
+1. BIG Club’s RNA-Seq workshop (goes through all the required tasks in weeks 6-9): https://www.bigbioinformatics.org/r-and-rnaseq-analysis
 2. Bioconductor RNA-Seq tutorial: https://bioconductor.org/packages/release/workflows/html/rnaseqGene.html
 3. DataCamp RNA-Seq tutorial: https://learn.datacamp.com/courses/rna-seq-with-bioconductor-in-r
 
