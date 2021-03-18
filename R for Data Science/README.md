@@ -8,6 +8,7 @@ You and your friends love to play the classic board game "Tic-Tac-Toe", but due 
 
 Write an R script that will allow you to play a game of Tic-Tac-Toe against another person using the command line. 
 
-![Alt Text](https://media.giphy.com/media/aoV0nOJWRb7CSTQejM/giphy.gif)
+![tic-tac-toe](https://user-images.githubusercontent.com/44813811/111565769-f6640d00-8769-11eb-9f06-5076c18b3ab0.gif)
+
 
 
