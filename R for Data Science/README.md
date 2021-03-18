@@ -12,6 +12,7 @@ Create a script that lets you play a full game of tic-tac-toe, given that:
 1. The script has to be executable using `Rscript <your_script.R>` (e.g., `Rscript tic-tac-toe.R`).
 2. All the rules of tic-tac-toe are included. `X` always goes first, then `O`. The first to get three-in-a-row wins. A stalemate when no moves remain is a tie.
 3. The script should ask the player to choose moves using a prompt (see example). 
+4. There should be no errors. No matter what the user inputs, they shouldn't see any errors. 
 
 **Hint**: To get user input on the command line, use the following construct:
 
@@ -26,6 +27,8 @@ symbol <- readLines(con = con, n = 1)
 ```
 
 This is necessary to ensure that the script works regardless of whether you run it in RStudio or using `Rscript` on the command line. 
+
+**Hint 2**: To avoid the user getting an error, make sure that their inputs are validated. For example, if I ask the user `X or O?` they shouldn't be allowed to answer `B`. In my version of the code, I simply asked them again for the answer -- but you can choose your own way of handling these issues.
 
 **Bonus**: There's no requirement to make it aesthetically nice, but you get bonus points! If you want to, you can use `cat()` to make formatted messages to the player. You can also use `Sys.sleep()` to add pauses that allow the user time to read the screen. 
 
