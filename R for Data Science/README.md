@@ -8,6 +8,8 @@ To get the skills in R programming needed to complete this, check out:
 
 The BIG workshop on R programming ([link](https://www.bigbioinformatics.org/r-for-biologists)), DataCamp's introductory R course ([link](https://learn.datacamp.com/courses/free-introduction-to-r)), and intermediate R course ([link](https://learn.datacamp.com/courses/intermediate-r)).
 
+You can always visit Henry's office hours ([link](https://calendly.com/millerh1/30min)) and ask for help in the slack group. Don't worry if this takes a while, it's designed to be a challenge. 
+
 ## Tic-Tac-Toe
 
 You and your friends love to play the classic game "Tic-Tac-Toe", but you can't play together anymore because of the pandemic! 
