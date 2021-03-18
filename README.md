@@ -4,6 +4,8 @@ This repository contains the instructions and data necessary for completing the 
 
 If you run into any issues, feel free to reach out for help over Slack to the other students or to Henry. Once you complete training, please be available to help others! We cannot succeed without working together. 
 
+For anything related to R, you can check out the free online bigbioinformatics.org workshops ([link](https://www.bigbioinformatics.org/workshops))!
+
 For learning R and Python, you can use DataCamp (you should have access -- ask Henry if not). There are relevant courses covering all areas of training! Link: https://www.datacamp.com/
 
 Other resources for getting help:
