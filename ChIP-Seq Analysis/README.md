@@ -2,6 +2,8 @@
 
 Programming language: **R**
 
+Pre-requisite: `miniprojects_for_training/Data Analysis with R`
+
 Select two ChIP-Seq datasets from ENCODE – download the peaks for both, in ‘bed narrowPeak’ format. It doesn’t matter much what options you choose beyond that, though I typically prefer IDR thresholded peaks. For example, you could select NFE2L2 ChIP-Seq (data set: https://www.encodeproject.org/experiments/ENCSR584GHV/ -- peaks: https://www.encodeproject.org/files/ENCFF418TUX/) and BRCA1 (dataset: https://www.encodeproject.org/experiments/ENCSR343RJR/ -- peaks: https://www.encodeproject.org/files/ENCFF791SNR/). Do the following analyses (using a tool like ChIPSeeker):
 
 1. Make a venn diagram comparing the overlap of binding sites for your two ChIP-Seq datasets
