@@ -36,7 +36,7 @@ symbol <- readLines(con = con, n = 1)
 
 This is necessary to ensure that the script works regardless of whether you run it in RStudio or using `Rscript` on the command line. 
 
-**Hint 2**: To avoid the user getting an error, make sure that their inputs are validated. For example, if I ask the user `X or O?` they shouldn't be allowed to answer `B`. In my version of the code, I simply asked them again for the answer -- but you can choose your own way of handling these issues.
+**Hint 2**: To avoid the user getting an error, make sure that their inputs are validated. For example, if I ask the user `X or O?` they shouldn't be allowed to answer `B`. In my version of the game (below), if the user enters an invalid response, I send a warning message and prompt them again -- but you can choose your own way of handling these issues.
 
 **Bonus**: There's no requirement to make it aesthetically nice, but you get bonus points! If you want to, you can use `cat()` to make formatted messages to the player. You can also use `Sys.sleep()` to add pauses that allow the user time to read the screen. 
 
