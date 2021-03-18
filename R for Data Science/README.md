@@ -2,7 +2,7 @@
 
 This training is intended to help you gain and demonstrate fundamental skills in `R` programming 
 
-## Preliminary
+## Background and Getting Help
 
 To get the skills in R programming needed to complete this, check out:
 
@@ -10,7 +10,7 @@ The BIG workshop on R programming ([link](https://www.bigbioinformatics.org/r-fo
 
 You can always visit Henry's office hours ([link](https://calendly.com/millerh1/30min)) and ask for help in the slack group. Don't worry if this takes a while, it's designed to be a challenge. 
 
-## Tic-Tac-Toe
+## Miniproject: Tic-Tac-Toe
 
 You and your friends love to play the classic game "Tic-Tac-Toe", but you can't play together anymore because of the pandemic! 
 
