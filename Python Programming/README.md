@@ -36,3 +36,6 @@ symbol = input("X or O? ")
 
 Here's an example:
 
+![tic-tac-toe-py](https://user-images.githubusercontent.com/44813811/111715575-20790600-8822-11eb-878e-227f6f133ea5.gif)
+
+
