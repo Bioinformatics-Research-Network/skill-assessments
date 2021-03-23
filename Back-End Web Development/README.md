@@ -1,5 +1,7 @@
 # Back-End Web Development
 
+Pre-requisite: [`Python Programming/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20Programming) and ["Linux for Bioinformatics/"](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Linux%20for%20Bioinformatics)
+
 **Note** This miniproject is experimental -- if you find flaws or have other suggestions, let Henry know.
 
 As bioinformatics becomes more central in the study of biology, it is important to develop user-friendly tools for biologists so that they can run analyses without needing to code. Excellent examples of this can be found in [gepia2](http://gepia2.cancer-pku.cn/#index), [enrichr](https://maayanlab.cloud/Enrichr/), and [cBioPortal](https://www.cbioportal.org/). While `R-shiny` and `plotly dash` are useful for quickly creating small web apps that can serve a modest number of users, more complicated and scalable applications will require a robust web framework.
