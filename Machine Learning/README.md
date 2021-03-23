@@ -1,18 +1,14 @@
-# Miniproject: Machine Learning
+# Supervised Machine Learning
 
-Programming languages: **R** or **Python**
+Pre-requisite: [`R Programming/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20Programming) or [`Python Programming/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20Programming)
 
-All projects which require Machine Learning training should do the following:
+
+Supervised machine learning is a field of data science concerned with training predictive models for various tasks. An example would be a linear model that can predict a person's weight based on their height. In this miniproject, you will perform a supervised machine learning analysis and build a model that can predict whether passengers aboard the Titanic are likely to survive or not. Complete the following:
 
 1. Sign up for Kaggle and start the Titanic challenge from Kaggle (https://www.kaggle.com/c/titanic)
-2. Perform exploratory data analysis (EDA) using Unsupervised machine learning approaches (see below). 
-3. Create a classification model using Supervised machine learning approaches (see below). 
-4. Refine the model until you have > 70% accuracy
-5. Subit your final predictions to Kaggle and then send Henry your notebook. 
+2. Perform exploratory data analysis (EDA) using typical methods (e.g., PCA, feature correlation, etc)
+3. Create a binary classifier that can predict whether patients will live or not.
+4. Submit your final predictions to Kaggle.
+5. Refine the model until you have > 75% accuracy. Then, share your notebook on Kaggle with Henry (username is "millerh1").
 
-Depending on the projects you are interested in joining, you should spend more or less time on the following:
-
-1. Unsupervised learning (e.g., dimensionality reduction, manifold learning, clustering, etc)
-2. Supervised learning (e.g., Classification/Regression models, parameter tuning, cross-validation, etc)
-
-DataCamp (https://learn.datacamp.com/) has several supervised/unsupervised machine learning courses for learning these approaches! If you don't have access yet, just let Henry know and he will add you to the group.
+DataCamp (https://learn.datacamp.com/) has an excellent courses on supervised machine learning in both R and python.
