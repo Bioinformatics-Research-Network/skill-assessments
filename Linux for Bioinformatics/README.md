@@ -104,10 +104,9 @@ Complete the following:
 3. Use the `sudo usermod` command to give `sudouser` the ability to use the `sudo` command. 
 4. Switch to the `sudouser` account with `su - sudouser`. You should now see `sudouser@ip-xxx-xx-xx-xxx:~$` at beginning of each line. This indicates you are now logged in as `sudouser`. 
 5. Run `sudo ls /root` to confirm that `sudo` is working -- you should see it output the word `snap`.
-6. Finally, close your `ssh` client. Re-open it and then connect again with the username `sudouser` but with ALL other connection settings the same as before. **Q5. Why didn't that work?** Solve the issue.  **Q6. What was the solution?** To complete this training, you have to log in as `sudouser` and correctly explain what went wrong (see hints below). There is no reason to switch to a different `ssh` client. MobaXTerm, WSL, PuTTY, and Terminal all work fine for this. (Also, if you didn't get an error when logging in as `sudouser`, let Henry know...)
-7. Once you finally log in, confirm again that you have `sudo` by running `sudo ls /root`.
+6. Finally, close your `ssh` client. Re-open it and then connect again with the username `sudouser` but with ALL other connection settings the same as before. This should lead to an error. **Q5. Why didn't that work?** Solve the issue.  **Q6. What was the solution?** To complete this training, you have to log in as `sudouser` and correctly explain what went wrong (see hints 1 and 2 below). There is no reason to switch to a different `ssh` client. MobaXTerm, WSL, PuTTY, and Terminal all work fine for this. (Also, if you didn't get an error when logging in as `sudouser`, let Henry know...)
+7. Once you finally log in with `sudouser`, confirm again that you have `sudo` access by running `sudo ls /root`.
 8. If you are certain that your `sudouser` login is working correctly, delete the `ubuntu` account with the `deluser` command. You should now be unable to log in as `ubuntu`.
-9. **Bonus Q1. What command could we have used to add a password to the `ubuntu` user account?**
 
 **Hint 1**: Use your google skills, don't be afraid of watching/reading an ssh tutorial ([for example](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)), and remember that, whenever you learn new computing skills, most of the errors are either because you don't yet understand how the tools work or because you typed something incorrectly. 
 
@@ -135,7 +134,7 @@ sudo docker pull combinelab/salmon
 ```
 sudo docker run combinelab/salmon salmon swim
 ```
-6. Regarding the previous command, **Q7. what does the `sudo docker run` part of the command do? and what does the `salmon swim` part of the command do?** Read the docs for docker and salmon if you run into trouble. The output for `salmon swim` should look like this:
+6. Regarding the previous command, **Q7. what does the `sudo docker run` part of the command do? and what does the `salmon swim` part of the command do?** Read the docs for docker and run `salmon -h` for more info. The output for `salmon swim` should look like this:
 ```
 Version Info: This is the most recent version of salmon.
 
@@ -154,10 +153,10 @@ sudo docker system prune
 
 ## Set up a non-sudo user account
 
-While `sudo` access is convenient for when you need to install / update software system-wide, you can't always count on having it. In fact, it's safer to limit the number of users with `sudo` access, so most systems will only have 1-2 of them. The rest of the users will be non-`sudo`. Complete the following to set up a non-`sudo` account:
+While `sudo` access is convenient for when you need to install / update software system-wide, you can't always count on having it. In fact, it's safer to limit the number of users with `sudo` access, so most systems will only have a few of them. The rest of the users will be non-`sudo`. Complete the following to set up a non-`sudo` account:
 
-1. Create a new user, `serveruser`, who has a strong, randomly-generated password, a home directory, and who has the ability to access the server.
-2. Successfully connect to the server using `serveruser` (you needed to solve the earlier problem to do this).
+1. Create a new user account, `serveruser`, that has a strong and randomly-generated password, a home directory, and the ability to access the server.
+2. Successfully connect to the server using `serveruser`.
 3. Try running `sudo ls /root`, **Q8. What is the output of this command?**
 
 ## Miniconda
@@ -166,12 +165,13 @@ Anaconda / Miniconda is the most popular package management tool for data scienc
 
 As `serveruser`, complete the following:
 1. Download the [miniconda3 installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh) using `wget` or `curl`. 
-2. Run the installer using `bash` and complete the install. When prompted with `Do you wish the installer to initialize Miniconda3 by running conda init? [yes|no]` answer `yes`. 
-3. Close and re-open your connection with `serveruser`. If this worked, you will now see `(base)` in front of the command line. 
-4. Use `conda` to install `salmon`. **Note**: If you are ever unsure of the correct `conda` command to install a package, simply google "Conda install (package_name)" and click the first result. For example, if I didn't know how to install salmon, I would have googled "conda install salmon" and then found this [page](https://anaconda.org/bioconda/salmon) which shows the install command I need.
+2. Run the installer `.sh` script to complete the install. When prompted with `Do you wish the installer to initialize Miniconda3 by running conda init? [yes|no]` answer `yes`. 
+3. Close and re-open your ssh session (log in as `serveruser` again). If the install worked, you will now see `(base)` in front of the command line prompt. 
+4. Use `conda` to install `salmon`. **Note**: If you are ever unsure of the correct `conda` command to install a package, simply google "Conda install (package_name)" and click the first result. For example, if I didn't know how to install salmon, I would have googled "conda install salmon" and then found this [page](https://anaconda.org/bioconda/salmon) which shows the install command I need.\*
 ```
 conda install -c bioconda salmon
 ```
+\*This may produce an error for some users. If it does, try using your google skills and see if you can solve it. A good idea is to google the name of the tool + the content of the error message. You can also visit the GitHub page for the tool and search in the "Issues" section. If you can't find the solution after 30 minutes, ask Henry and he will help you. 
 5. Read the `conda install` reference ([here](https://docs.conda.io/projects/conda/en/latest/commands/install.html)). In the previous command, **Q9. what does `-c bioconda` do?**
 6. Confirm this worked by running `salmon swim`. 
 
@@ -200,7 +200,7 @@ RNA-Seq data is commonly stored in the Sequencing Read Archive (SRA), a public d
 1. Install `sra-tools` using `conda`. 
 2. Download the RNA-Seq sample "SRR074122" using `prefetch` (part of the SRA tools). The documentation is [here](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=prefetch). **Q16. What format are the downloaded sequencing reads in?**
 3. Disk (storage) space is a concern when working with large sequencing files. Check your remaining disk space with the `df -h` command. The remaining space will be listed under `/dev/root`. **Q17. What is the total size of the disk?**, **Q18. How much space is remaining on the disk?**
-4. Convert the reads to `fastq` format using `fastq-dump SRR074122`. Did that work? Considering the previous question, answer **Q19. What went wrong?** (if you didn't encounter any errors, let Henry know...)
+4. Convert the reads to `fastq` format using `fastq-dump SRR074122`. This should produce an error. Considering the previous question and answer: **Q19. What went wrong?** (if you didn't encounter any errors, let Henry know...)
 5. Delete the partially-generated `.fastq` file. Then, modify the previous `fastq-dump SRR074122` command so that the issue in **Q19** no longer occurs. The documentation for `fastq-dump` is [here](https://ncbi.github.io/sra-tools/fastq-dump.html). **Q20: What was your solution?** **Hint**: consider **Q11**. 
 6. Once you have successfully converted your reads, use `salmon` to quantify them. Set the output folder name as `transcripts_quant/`. **Note** These reads are single-end.
 
