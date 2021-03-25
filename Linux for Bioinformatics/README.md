@@ -66,6 +66,10 @@ The method preferred by many MacOS developers is simply to use the built-in `ter
 
 There's plenty of decent alternatives to FileZilla, such as [Cyberduck](https://cyberduck.io/) that you may also want to try. The AWS [tutorial](https://docs.aws.amazon.com/transfer/latest/userguide/transfer-file.html) lists several alternatives and provides instructions for establishing an SFTP connection from them.
 
+#### VSCode for SFTP (Credit to Roshan for suggesting this)
+
+[VSCode](https://code.visualstudio.com/) is an excellent IDE for coding in a variety of languages and environments. Additionally, VSCode can connect to remote servers, allowing you to edit and transfer files over SFTP. To learn more, see the guide [here](https://code.visualstudio.com/docs/remote/ssh-tutorial). 
+
 ## Orientation to Linux Files and Navigation
 
 Once you have successfully connected, complete the following steps:
