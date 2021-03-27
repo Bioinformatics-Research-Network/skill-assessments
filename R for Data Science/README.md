@@ -31,11 +31,10 @@ my_data %>%
 Complete the following analysis in `R` and generate an `RMarkdown` report to show the analysis and results:
 
 1. Read in the `gapminder_clean.csv` data as a `tibble` using `read_csv`.
-2. Filter the data to include only rows where `Year` is `1962`. 
-3. Make a scatter plot comparing `'CO2 emissions (metric tons per capita)'` and `gdpPercap`. 
-4. Calculate the pearson correlation of `'CO2 emissions (metric tons per capita)'` and `gdpPercap`. What is the Pearson R value and associated p value?
-5. In what year is the correlation the strongest? Filter the dataset to that year for the next step...
-6. Using `plotly`, create an interactive scatter plot comparing `'CO2 emissions (metric tons per capita)'` and `gdpPercap`, where the point size is determined by `pop` (population) and the color is determined by the `continent`. You can easily convert any `ggplot` plot to a `plotly` plot using the `ggplotly()` command.
+2. Filter the data to include only rows where `Year` is `1962` and then make a scatter plot comparing `'CO2 emissions (metric tons per capita)'` and `gdpPercap` for the filtered data. 
+3. On the filtered data, calculate the pearson correlation of `'CO2 emissions (metric tons per capita)'` and `gdpPercap`. What is the Pearson R value and associated p value?
+4. On the unfiltered data, answer "In what year is the correlation between `'CO2 emissions (metric tons per capita)'` and `gdpPercap` the strongest?" Filter the dataset to that year for the next step...
+5. Using `plotly`, create an interactive scatter plot comparing `'CO2 emissions (metric tons per capita)'` and `gdpPercap`, where the point size is determined by `pop` (population) and the color is determined by the `continent`. You can easily convert any `ggplot` plot to a `plotly` plot using the `ggplotly()` command.
 
 Now, without further guidance, use your `R` Data Science skills to answer the following:
 
