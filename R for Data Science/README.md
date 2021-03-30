@@ -53,4 +53,6 @@ The techniques you apply here can be learned from DataCamp courses in the "Data 
 
 You can also learn most of these skills from the free book, [R for Data Science](https://r4ds.had.co.nz/).
 
+Suggested by Roshan, Introduction to Data Science book [here](https://rafalab.github.io/dsbook/models.html).
+
 ![img](https://cdn.scribbr.com/wp-content/uploads//2020/01/flowchart-for-choosing-a-statistical-test.png)
