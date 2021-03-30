@@ -36,10 +36,10 @@ Complete the following analysis in `R` and generate an `RMarkdown` report to sho
 4. On the unfiltered data, answer "In what year is the correlation between `'CO2 emissions (metric tons per capita)'` and `gdpPercap` the strongest?" Filter the dataset to that year for the next step...
 5. Using `plotly`, create an interactive scatter plot comparing `'CO2 emissions (metric tons per capita)'` and `gdpPercap`, where the point size is determined by `pop` (population) and the color is determined by the `continent`. You can easily convert any `ggplot` plot to a `plotly` plot using the `ggplotly()` command.
 
-Now, without further guidance, use your `R` Data Science skills to answer the following:
+Now, without further guidance, use your `R` Data Science skills (and appropriate statistical tests) to answer the following:
 
-1. What is the relationship between `continent` and `'Energy use (kg of oil equivalent per capita)'`? 
-2. Is there a significant difference between Europe and Asia with respect to `'Imports of goods and services (% of GDP)'` in the years after 1990?
+1. What is the relationship between `continent` and `'Energy use (kg of oil equivalent per capita)'`? (stats test needed)
+2. Is there a significant difference between Europe and Asia with respect to `'Imports of goods and services (% of GDP)'` in the years after 1990? (stats test needed)
 3. What is the country that has the highest `'Population density (people per sq. km of land area)'` across all years? (i.e., which country has the highest average ranking in this category across each time point in the dataset?)
 4. What country has shown the greatest increase in `'Life expectancy at birth, total (years)'` since 1962? 
 
@@ -53,3 +53,4 @@ The techniques you apply here can be learned from DataCamp courses in the "Data 
 
 You can also learn most of these skills from the free book, [R for Data Science](https://r4ds.had.co.nz/).
 
+![img](https://cdn.scribbr.com/wp-content/uploads//2020/01/flowchart-for-choosing-a-statistical-test.png)
