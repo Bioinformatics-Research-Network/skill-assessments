@@ -14,10 +14,10 @@ To complete the miniproject, create an analysis in `jupyter-notebook` which does
 4. On the unfiltered data, answer "In what year is the correlation between `'CO2 emissions (metric tons per capita)'` and `gdpPercap` the strongest?" Filter the dataset to that year for the next step...
 5. Using `plotly` or `bokeh`, create an interactive scatter plot comparing `'CO2 emissions (metric tons per capita)'` and `gdpPercap`, where the point size is determined by `pop` (population) and the color is determined by the `continent`. 
 
-Now, without further guidance, use your Python Data Science skills to answer the following:
+Now, without further guidance, use your Python Data Science skills (and the correct statistical tests) to answer the following:
 
-1. What is the relationship between `continent` and `'Energy use (kg of oil equivalent per capita)'`? 
-2. Is there a significant difference between Europe and Asia with respect to `'Imports of goods and services (% of GDP)'` in the years after 1990?
+1. What is the relationship between `continent` and `'Energy use (kg of oil equivalent per capita)'`? (Stats test needed)
+2. Is there a significant difference between Europe and Asia with respect to `'Imports of goods and services (% of GDP)'` in the years after 1990? (Stats test needed)
 3. What is the country that has the highest `'Population density (people per sq. km of land area)'` across all years? (i.e., which country has the highest average ranking in this category across each time point in the dataset?)
 4. What country has shown the greatest increase in `'Life expectancy at birth, total (years)'` since 1962? 
 
@@ -30,4 +30,8 @@ Once you are done, push the notebook to GitHub, generate an `nbviewer` link [her
 The techniques you apply here can be learned from DataCamp courses in the "Data Scientist with Python" career track ([link](https://learn.datacamp.com/career-tracks/data-scientist-with-python)). It's recommended to take as many of these courses as needed. Everything up until "Supervised Learning with scikit-learn" is pretty directly relevant.
 
 You can also learn most of these skills from the free [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/).
+
+Flowchart for choosing statistical tests:
+![img](https://cdn.scribbr.com/wp-content/uploads//2020/01/flowchart-for-choosing-a-statistical-test.png)
+
 
