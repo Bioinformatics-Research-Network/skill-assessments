@@ -32,7 +32,8 @@ location)
 **Q5. Why didn&#39;t that work?**
 
  * The password for the new user (sudouser) is different
- * The public key is not saved in the correct folder for the new user
+ * The public key is not saved in the correct folder for the new user (in fact the .ssh-folder does not exist at all)
+ * After creation: the permissions for this folder are wrong
 <br><br>
 
 **Q6. What was the solution?**
@@ -41,7 +42,7 @@ location)
 2. Issue with the public key<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Create .ssh-folder in the home directory of sudouser<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Add public key<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Change permissions of key<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Change permissions of .ssh-folder and key (using `chmod`)<br>
 <br><br>
 
 **Q7. What does the sudo docker run part of the command do? What does the
