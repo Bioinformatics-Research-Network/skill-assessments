@@ -105,7 +105,7 @@ input
 
 **Q16. What format are the downloaded sequencing reads in?**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The downloaded files are
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The downloaded files are in .sra
 <br><br>
 
 **Q17. What is the total size of the disk?**
