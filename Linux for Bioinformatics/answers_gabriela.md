@@ -126,7 +126,8 @@ input
 
 **Q20: What was your solution?**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Used `--gzip` in order to compress the output from `fastq-dump`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Used `--gzip` in order to compress the output from `fastq-dump`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Alternative: Instances in the AWS free tier can be upgraded to up to 30G of disk space (while remaining free) - so another solution would be to actually take full advantage of that allowance by incresaing the allocated disk space to 30G during instance setup*
 
 
 
