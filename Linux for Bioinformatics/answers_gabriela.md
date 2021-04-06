@@ -110,22 +110,22 @@ input
 
 **Q17. What is the total size of the disk?**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **9.6G** of which **7.7G** were allocated to /dev/root
 <br><br>
 
 **Q18. How much space is remaining on the disk?**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on /dev/root: **1.6G** still available
 <br><br>
 
 **Q19. What went wrong?**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answer
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The file was downloaded as zip (in a compressed format)
 <br><br>
 
 **Q20: What was your solution?**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Decompress file and run command again using the decompressed version.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Decompress file and run command again using the *.fastq* version.
 
 
 
