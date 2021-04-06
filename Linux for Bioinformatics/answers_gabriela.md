@@ -121,12 +121,12 @@ input
 
 **Q19. What went wrong?**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The file was downloaded as zip (in a compressed format)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ran out of disk space
 <br><br>
 
 **Q20: What was your solution?**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Decompress file and run command again using the *.fastq* version.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Used `--gzip` in order to compress the output from `fastq-dump`
 
 
 
