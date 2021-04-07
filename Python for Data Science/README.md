@@ -32,6 +32,7 @@ The techniques you apply here can be learned from DataCamp courses in the "Data 
 You can also learn most of these skills from the free [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/).
 
 Flowchart for choosing statistical tests:
-![img](https://cdn.scribbr.com/wp-content/uploads//2020/01/flowchart-for-choosing-a-statistical-test.png)
 
+![choosing-appropriate-statistics-test-flow-chart-1-638](https://user-images.githubusercontent.com/44813811/113900197-32035d00-9793-11eb-9e34-3908433e7bf0.jpg)
 
+[Source](https://image.slidesharecdn.com/choosingappropriatestatisticstestflowchart-171001164040/95/choosing-appropriate-statistics-test-flow-chart-1-638.jpg?cb=1506876046)
