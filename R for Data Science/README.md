@@ -43,7 +43,7 @@ Now, without further guidance, use your `R` Data Science skills (and appropriate
 3. What is the country (or countries) that has the highest `'Population density (people per sq. km of land area)'` across all years? (i.e., which country has the highest average ranking in this category across each time point in the dataset?)
 4. What country (or countries) has shown the greatest increase in `'Life expectancy at birth, total (years)'` since 1962? 
 
-For each question, you should generate summary visualizations (preferrably interactive ones) that demonstrate your answer to each question. Additionally, the analysis must be user-friendly for a non-programmer and should intuitively convey the insights you uncovered. Use `markdown` to ensure that the text is organized and readable. 
+For each question, you should generate summary visualizations (preferrably interactive ones) that demonstrate your answer to each question. Additionally, the analysis must be user-friendly for a non-programmer and should intuitively convey the insights you uncovered. Use `markdown` to ensure that the text is organized, readable, and stylish. For an example an a well-done RMarkdown report see [this example](https://static-html-pages.s3-us-west-2.amazonaws.com/merck-project/RloopCorrelationSummary.html).  
 
 Once you are done, export your `RMarkdown` to an `.html` file and share it with Henry.
 
