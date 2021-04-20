@@ -10,11 +10,11 @@ A. `hello_world.txt`
 
 Q3. What is the output of each ls command?
 
-A. Blank, `hello_world.txt`
+A. Blank; `hello_world.txt`
 
 Q4. What is the output of each?
 
-A. Blank, blank, `hello_world.txt`
+A. Blank; blank; `hello_world.txt`
 
 Q5. Why didn't that work?
 
@@ -28,7 +28,7 @@ A. Copy `/home/ubuntu/.ssh/authorized_keys` to `/home/sudouser/.ssh`
 
 Q7. what does the sudo docker run part of the command do? and what does the salmon swim part of the command do?
 
-A. Run a command in a container, run a "super-secret operation" which prints an
+A. Run a command in a container; run a "super-secret operation" which prints an
    ASCII art version of Salmon.
 
    __Note__: You'll need the `-a` flag in order to actually free up space:
