@@ -154,7 +154,7 @@ Version Info: This is the most recent version of salmon.
 
 7. Now that you're done, free up space by removing unused docker images.
 ```
-sudo docker system prune
+sudo docker system prune -a
 ```
 
 ## Set up a non-sudo user account
