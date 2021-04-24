@@ -22,6 +22,8 @@ Create a script that lets you play a full game of tic-tac-toe, given that:
 3. The script should ask the player to choose moves using a prompt (see example). 
 4. There should be no errors. No matter what the user inputs, they shouldn't see any errors. 
 
+All code should be commited using `git` and pushed to your fork of the training repo on GitHub. Once you are done, let Henry know and he will check your `.R` script. 
+
 **Hint**: To get user input on the command line, use the following construct:
 
 ```
