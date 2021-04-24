@@ -14,7 +14,7 @@ You can always visit Henry's office hours ([link](https://calendly.com/millerh1/
 
 You and your friends love to play the classic game "Tic-Tac-Toe", but you can't play together anymore because of the pandemic! 
 
-Write an R script that will allow you to play a game of Tic-Tac-Toe against your computer using the command line. When you're done, send your script to Henry to test!
+Write an R script that will allow you to play a game of Tic-Tac-Toe against your computer using the command line. 
 
 Create a script that lets you play a full game of tic-tac-toe, given that:
 1. The script has to be executable using `Rscript <your_script.R>` (e.g., `Rscript tic-tac-toe.R`).
