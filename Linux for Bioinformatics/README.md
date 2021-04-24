@@ -2,7 +2,7 @@
 
 **Note**: This training will require setting up a free AWS account, which requires a credit card that can do business in the U.S. If you do not have a card like this and cannot get one, let Henry know and he will help you.
 
-This training is designed to test your basic fluency in the Linux environment and your ability to utilize google to complete challenges on the command line. It also has the added bonus of giving you a glimpse into the wide world of AWS. Please follow all instructions. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`. You will need to send your answers to Henry in order to complete this training. 
+This training is designed to test your basic fluency in the Linux environment and your ability to utilize google to complete challenges on the command line. It also has the added bonus of giving you a glimpse into the wide world of AWS. Please follow all instructions. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`, which should be commited using `git` and pushed to your fork of the training repo on GitHub. Once you are done, let Henry know (and send anything needed to access your server). 
 
 For example, if I asked:
 >Q1. In the command `ls`, what do `l` and `s` stand for?
