@@ -17,6 +17,8 @@ Then, do the following:
 6. Present the results in notebook form (either Rmarkdown or jupyter notebook). Make sure to export your notebook to HTML and that it comes out looking correctly -- example of an HTML export of RMarkdown: https://static-html-pages.s3-us-west-2.amazonaws.com/EUFA_BRCA2_Project/EUFA_BRCA2_Report.html
 7. What do the results tell you about your conditions of interest? What is the biological meaning of these results? What future experiments could you perform? (These questions don't have an exact right answer, just about thinking through the meaning of the results). 
 
+All code and `.html` should be commited using `git` and pushed to your fork of the training repo on GitHub. Once you are done, let Henry know and he will check your `.html` report. 
+
 Useful resources for learning this analysis approach:
 1. BIG Club’s RNA-Seq workshop (goes through all the required tasks in weeks 6-9): https://www.bigbioinformatics.org/r-and-rnaseq-analysis
 2. Bioconductor RNA-Seq tutorial: https://bioconductor.org/packages/release/workflows/html/rnaseqGene.html
