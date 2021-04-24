@@ -1,5 +1,7 @@
 # R for Data Science
 
+Suggested pre-requisites: [R Programming](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20Programming)
+
 `R` is an excellent language for Data Science. Some might even argue that Data Science is what `R` is for! 
 
 While `Python` is also an excellent language, it still lags far behind the convenience and extensibility of the `R` Data Science ecosystem. Even the `DataFrame` structure is built into base `R` without any extra package needed! Moreover, there is no better tool than `RStudio` for writing code that quickly and efficiently completes Data Science tasks. 
