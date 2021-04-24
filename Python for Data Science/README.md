@@ -23,7 +23,7 @@ Now, without further guidance, use your Python Data Science skills (and the corr
 
 For each question, you should generate summary visualizations (preferrably interactive ones) that demonstrate your answer to each question. Additionally, the analysis must be user-friendly for a non-programmer and should intuitively convey the insights you uncovered. Use `markdown` to ensure that the text is organized and readable. The notebook should also be friendly for a non-programmer to read. 
 
-Once you are done, push the notebook to GitHub, generate an `nbviewer` link [here](https://nbviewer.jupyter.org/) and share it with Henry.
+All code should be commited using `git` and pushed to your fork of the training repo on GitHub. Once you are done, let Henry know and he will check your notebook.
 
 ## Learning Resources
 
