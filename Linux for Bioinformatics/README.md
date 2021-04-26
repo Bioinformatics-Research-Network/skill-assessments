@@ -175,8 +175,11 @@ As `serveruser`, complete the following:
 3. Close and re-open your ssh session (log in as `serveruser` again). If the install worked, you will now see `(base)` in front of the command line prompt. 
 4. Use `conda` to install `salmon`. **Note**: If you are ever unsure of the correct `conda` command to install a package, simply google "Conda install (package_name)" and click the first result. For example, if I didn't know how to install salmon, I would have googled "conda install salmon" and then found this [page](https://anaconda.org/bioconda/salmon) which shows the install command I need.\*
 ```
-conda install -c bioconda salmon
+conda install -c bioconda -c conda-forge salmon
 ```
+
+**Note:** This code has been updated to include `-c conda-forge` because new `conda` installations on new EC2 instances may lack some core libraries that cannot be obtained through `bioconda` alone.
+
 \*This may produce an error for some users. If it does, try using your google skills and see if you can solve it. A good idea is to google the name of the tool + the content of the error message. You can also visit the GitHub page for the tool and search in the "Issues" section. If you can't find the solution after 30 minutes, ask Henry and he will help you. 
 5. Read the `conda install` reference ([here](https://docs.conda.io/projects/conda/en/latest/commands/install.html)). In the previous command, **Q9. what does `-c bioconda` do?**
 6. Confirm this worked by running `salmon swim`. 
