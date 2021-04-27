@@ -1,6 +1,6 @@
 # Back-End Web Development
 
-Suggested Pre-requisites: [Python for Data Science](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20for%20Data%20Science) and [Linux for Bioinformatics](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Linux%20for%20Bioinformatics)
+Pre-requisite: [`Python for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20for%20Data%20Science) and ["Linux for Bioinformatics/"](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Linux%20for%20Bioinformatics)
 
 **Note** This miniproject is experimental -- if you find flaws or have other suggestions, let Henry know.
 
@@ -28,7 +28,7 @@ E.g., `<app_base_url>/api/gapminder?year=1962&co2-gt=10&continent=north-america`
 
 4. Package your `gapminder_clean.csv` dataset in an `sqlite` database. Change your API code so that all queries work with the `sqlite` database and the `.csv` file is no longer needed.
 
-5. Deploy your application along with any necessary databases to AWS. You can use a free AWS EC2 instance to do this. See the instructions in the `Linux for Bioinformatics/` training (and if you are unable to create an AWS account, let Henry know for a workaround). The only difference is that you will need to allow HTTP/HTTPS traffic while configuring your instance. You can find an example of this [here](https://www.twilio.com/blog/deploy-flask-python-app-aws). 
+5. Deploy your application along with any necessary databases to AWS. You can use a free AWS EC2 instance to do this. See the instructions in the `Linux for Bioinformatics/` training. The only difference is that you will need to allow HTTP/HTTPS traffic while configuring your instance. You can find an example of this [here](https://www.twilio.com/blog/deploy-flask-python-app-aws). 
 
 6. Set up [nginx](https://www.nginx.com/) on your EC2 instance and use it to serve your `flask` API. For a nice guide to setting this up, see [here](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04) and additional guidance [here](https://flask.palletsprojects.com/en/1.1.x/deploying/wsgi-standalone/#proxy-setups). **NOTE**: Keep in mind that you won't be able to access any ports on the remote machine unless they were opened during EC2 setup in the Security Group settings.
 

@@ -1,6 +1,6 @@
 # Python for Data Science
 
-Suggested pre-requisite: [`Python Programming/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20Programming)
+Pre-requisite: [`Python Programming/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20Programming)
 
 With its clean syntax, massive community, and extensive package ecosystem, python is an excellent language for Data Science. In particular, packages like `scikit-learn`, `pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`, `plotly`, and `bokeh` have an incredible array of functions for doing data science. Python is also the basis for the powerful `Anaconda` ecosystem, including `jupyter-notebook` and `spyder`. Furthermore, `RStudio`, a mainstay in `R` for Data Science, also now supports `Python` programming. 
 
@@ -21,9 +21,9 @@ Now, without further guidance, use your Python Data Science skills (and the corr
 3. What is the country (or countries) that has the highest `'Population density (people per sq. km of land area)'` across all years? (i.e., which country has the highest average ranking in this category across each time point in the dataset?)
 4. What country (or countries) has shown the greatest increase in `'Life expectancy at birth, total (years)'` since 1962? 
 
-For each question, you should generate summary visualizations (preferrably interactive ones) that demonstrate your answer to each question. Additionally, the analysis must be user-friendly for a non-programmer and should intuitively convey the insights you uncovered. Use `markdown` to ensure that the text is organized and readable. The notebook should also be friendly for a non-programmer to read. 
+For each question, you should generate summary visualizations (preferrably interactive ones) that demonstrate your answer to each question. Additionally, the analysis must be user-friendly for a non-programmer and should intuitively convey the insights you uncovered. Use `markdown` to ensure that the text is organized and readable. 
 
-All code should be commited using `git` and pushed to your fork of the training repo on GitHub. Once you are done, let Henry know and he will check your notebook.
+Once you are done, push the notebook to GitHub, generate an `nbviewer` link [here](https://nbviewer.jupyter.org/) and share it with Henry.
 
 ## Learning Resources
 
@@ -32,7 +32,6 @@ The techniques you apply here can be learned from DataCamp courses in the "Data 
 You can also learn most of these skills from the free [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/).
 
 Flowchart for choosing statistical tests:
+![img](https://cdn.scribbr.com/wp-content/uploads//2020/01/flowchart-for-choosing-a-statistical-test.png)
 
-![choosing-appropriate-statistics-test-flow-chart-1-638](https://user-images.githubusercontent.com/44813811/113900197-32035d00-9793-11eb-9e34-3908433e7bf0.jpg)
 
-[Source](https://image.slidesharecdn.com/choosingappropriatestatisticstestflowchart-171001164040/95/choosing-appropriate-statistics-test-flow-chart-1-638.jpg?cb=1506876046)
