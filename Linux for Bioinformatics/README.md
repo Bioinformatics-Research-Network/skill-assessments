@@ -1,6 +1,8 @@
 # Linux CLI (Bash / Shell) for Bioinformatics
 
-This training is designed to test your basic fluency in the Linux environment and your ability to utilize google to complete challenges on the command line. It also has the added bonus of giving you a glimpse into the wide world of AWS. Please follow all instructions. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`. You will need to send your answers to Henry in order to complete this training. 
+**Note**: This training will require setting up a free AWS account, which requires a credit card that can do business in the U.S. If you do not have a card like this and cannot get one, let Henry know and he will help you.
+
+This training is designed to test your basic fluency in the Linux environment and your ability to utilize google to complete challenges on the command line. It also has the added bonus of giving you a glimpse into the wide world of AWS. Please follow all instructions. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`, which should be commited using `git` and pushed to your fork of the training repo on GitHub. Once you are done, let Henry know (and send anything needed to access your server). 
 
 For example, if I asked:
 >Q1. In the command `ls`, what do `l` and `s` stand for?
@@ -152,7 +154,7 @@ Version Info: This is the most recent version of salmon.
 
 7. Now that you're done, free up space by removing unused docker images.
 ```
-sudo docker system prune
+sudo docker system prune -a
 ```
 
 ## Set up a non-sudo user account
@@ -173,8 +175,11 @@ As `serveruser`, complete the following:
 3. Close and re-open your ssh session (log in as `serveruser` again). If the install worked, you will now see `(base)` in front of the command line prompt. 
 4. Use `conda` to install `salmon`. **Note**: If you are ever unsure of the correct `conda` command to install a package, simply google "Conda install (package_name)" and click the first result. For example, if I didn't know how to install salmon, I would have googled "conda install salmon" and then found this [page](https://anaconda.org/bioconda/salmon) which shows the install command I need.\*
 ```
-conda install -c bioconda salmon
+conda install -c bioconda -c conda-forge salmon
 ```
+
+**Note:** This code has been updated to include `-c conda-forge` because new `conda` installations on new EC2 instances may lack some core libraries that cannot be obtained through `bioconda` alone.
+
 \*This may produce an error for some users. If it does, try using your google skills and see if you can solve it. A good idea is to google the name of the tool + the content of the error message. You can also visit the GitHub page for the tool and search in the "Issues" section. If you can't find the solution after 30 minutes, ask Henry and he will help you. 
 5. Read the `conda install` reference ([here](https://docs.conda.io/projects/conda/en/latest/commands/install.html)). In the previous command, **Q9. what does `-c bioconda` do?**
 6. Confirm this worked by running `salmon swim`. 
@@ -202,7 +207,7 @@ zcat athal.fa.gz | head -n 100
 RNA-Seq data is commonly stored in the Sequencing Read Archive (SRA), a public database hosted by the NCBI. While Gene Expression Omnibus (GEO) is used to access processed datasets, SRA is where the raw sequencing reads can be found. NCBI provides a series of computational tools that can be used to download these data and convert them into the correct format for analysis. 
 
 1. Install `sra-tools` using `conda`. 
-2. Download the RNA-Seq sample "SRR074122" using `prefetch` (part of the SRA tools). The documentation is [here](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=prefetch). **Q16. What format are the downloaded sequencing reads in?**
+2. Download the RNA-Seq sample "SRR074122" using `prefetch` (part of the SRA tools). The documentation is [here](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=prefetch). **Q16. What format are the downloaded sequencing reads in?** (If this step produces an error, provide the error message in Q16 and then you can also try downloading the file directly from [here](https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR074122/SRR074122) -- note that you can use this file with the succeeding steps.)
 3. Disk (storage) space is a concern when working with large sequencing files. Check your remaining disk space with the `df -h` command. The remaining space will be listed under `/dev/root`. **Q17. What is the total size of the disk?**, **Q18. How much space is remaining on the disk?**
 4. Convert the reads to `fastq` format using `fastq-dump SRR074122`. This should produce an error. Considering the previous question and answer: **Q19. What went wrong?** (if you didn't encounter any errors, let Henry know...)
 5. Delete the partially-generated `.fastq` file. Then, modify the previous `fastq-dump SRR074122` command so that the issue in **Q19** no longer occurs. The documentation for `fastq-dump` is [here](https://ncbi.github.io/sra-tools/fastq-dump.html). **Q20: What was your solution?** **Hint**: consider **Q11**. 
@@ -210,7 +215,7 @@ RNA-Seq data is commonly stored in the Sequencing Read Archive (SRA), a public d
 
 ## Wrap-up
 
-To complete the project, send Henry your `answers.md` file along with anything required to access your AWS server as `serveruser`. He will access the server, check your configuration and your `quant.sf` file -- and will certify completion of the miniproject if everything is correct.
+To complete the project, commit and push your `answers.md` and let Henry know (and send him anything required to access your AWS server as `serveruser`). He will access the server, check your configuration and your `quant.sf` file -- and will certify completion of the miniproject if everything is correct.
 
 
 

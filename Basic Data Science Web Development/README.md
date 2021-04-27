@@ -1,6 +1,6 @@
 # Basic Data Science Web Development
 
-Programming languages: [`Python for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20for%20Data%20Science)
+Suggested pre-requisites: [Python Programming](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20Programming) and [Python for Data Science](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20for%20Data%20Science)
 
 Create and deploy a `dash` application for exploring the gapminder dataset:
 

@@ -1,6 +1,6 @@
 # ChIP-Seq Analysis
 
-Pre-requisite: [`R for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science)
+Suggested pre-requisite: [`R for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science)
 
 ChIP-Seq is a technique for finding the sites that a protein binds to in the genome. It has a wide range of applications from mapping histone modifications to uncovering transcription factor gene targets. In this miniproject, your goal is to analyze two ChIP-Seq datasets and compare the results. This will require you to excercise your biological and informatics knowledge. The result will be an HTML report outlining the purpose of your analysis, the methods you used, your results, and your discussion / conclusion. It should be written in such a way that biologists who have no bioinformatics training can understand it.
 
@@ -14,8 +14,7 @@ Select any two ChIP-Seq datasets from [ENCODE](https://www.encodeproject.org/) â
 6. What genes and pathways/genesets shared between these datasets? What pathways differ? What is your interpretation of these results? What future directions could you propose to follow up on these findings? (No right answers to these questions, just important to think through this part).
 
 
-When you are done, send your HTML report to Henry for review.
-
+All code and `.html` should be commited using `git` and pushed to your fork of the training repo on GitHub. Once you are done, let Henry know and he will check your `.html` report. 
 
 Useful resources for learning this analysis approach:
 1. ChIP-Seq tutorial on `ChIPseeker` [here](https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html)
