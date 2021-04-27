@@ -17,7 +17,6 @@ The data needed to complete this challenge `gapminder_clean.csv` is provided her
 
 Web development / design is a key part of communicating science, and it is expected that all completed miniprojects will have the functionality noted above and offer a straightforward, user-friendly interface.
 
-All code should be commited and pushed to your fork of the training-requirements repository on GitHub. It should also include a `README.md` that explains how to launch your web application locally. Once you are done, let Henry know and he will test your web app.
 
 You can learn basic web development from a variety of free tutorials, such as W3 schools ([link](https://www.w3schools.com/)). An excellent `react.js` course is found [here](https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/8268490?start=15#overview) -- and [here](https://reactjs.org/tutorial/tutorial.html) is a free tutorial.
 
