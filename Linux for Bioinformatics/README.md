@@ -24,7 +24,7 @@ Also, don't forget about the Linux CLI cheatsheets (e.g., [this](https://cheatog
 
 ## Create a free Linux server in AWS
 
-AWS is a cloud provider which allows users to create small linux servers for free. Create an AWS account and follow their [tutorial](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance) to set up a linux server (you don't need to change the default security group settings). Choose the `Ubuntu Server 20.04 LTS` since that tends to be a fairly easy distribution of Linux for beginners. 
+AWS is a cloud provider which allows users to create small linux servers for free. Create an AWS account and follow their [tutorial](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance) to set up a linux server (you don't need to change the default security group settings). **Note**: Select the  `Ubuntu Server 20.04 LTS` image. Make sure that you select the `t2.micro` instance type. Leave all other settings as default. 
 
 **NOTE** DO NOT PAY FOR ANYTHING. Make sure that you only select "free tier eligible" options so that you don't get charged anything. You can also [sign up](https://aws.amazon.com/education/awseducate/) for an AWS Educate account (if you are a student) to get $30 in free credits without providing credit card info. Also, be careful with anything that's not in the free tier (there's no need to use paid services in this tutorial) -- you can find yourself spending a lot of money very quickly if you create an expensive server and leave it running for a long time.
 
