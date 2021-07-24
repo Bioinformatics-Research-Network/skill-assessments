@@ -258,7 +258,7 @@ RNA-Seq data is commonly stored in the Sequencing Read Archive (SRA), a public d
 
 ## Wrap-up
 
-To complete the project, commit and push your `answers.md` and let Henry know (and send him anything required to access your AWS server as `serveruser`). He will access the server, check your configuration and your `quant.sf` file -- and will certify completion of the miniproject if everything is correct.
+To complete the project, commit and push your `answers.md` to your fork. Then, let Henry know (and send him the link to your fork and anything required to access your AWS server as `serveruser`). He will access the server, check your configuration and your `quant.sf` file -- and will certify completion of the miniproject if everything is correct.
 
 
 
