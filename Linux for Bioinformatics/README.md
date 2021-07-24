@@ -1,8 +1,10 @@
 # Linux CLI (Bash / Shell) for Bioinformatics
 
-**Note**: This training will require setting up a free AWS account, which requires a credit card that can do business in the U.S. If you do not have a card like this and cannot get one, let Henry know and he will help you.
+**Note**: This training will require setting up a free AWS account, which requires a credit card that can do business in the U.S. (you won't be charged though). If you do not have a card like this and cannot get one, let Henry know and he will help you.
 
-This training is designed to test your basic fluency in the Linux environment and your ability to utilize google to complete challenges on the command line. It also has the added bonus of giving you a glimpse into the wide world of AWS. Please follow all instructions. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`, which should be commited using `git` and pushed to your fork of the training repo on GitHub. Once you are done, let Henry know (and send anything needed to access your server). 
+## Introduction
+
+This training is designed to test your basic fluency in the Linux environment and your ability to utilize google to complete challenges on the command line. It also has the added bonus of giving you a glimpse into the wide world of AWS. Please follow all instructions exactly as written. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`, which should be commited using `git` and pushed to your fork of this training repo on GitHub. Once you are done, let Henry know (and send anything needed to access your server). 
 
 For example, if I asked:
 >Q1. In the command `ls`, what do `l` and `s` stand for?
@@ -12,7 +14,7 @@ This would be what I expect to see in `answers.md`:
 >Q1: In the command `ls`, what do `l` and `s` stand for?  
 A: `ls` stands for "**l**ist **s**torage"
 
-See an example in `answer_example.md`
+See an example in `answer_example.md` within this directory.
 
 ## Preliminary - complete a Linux course
 Before you begin this, you should already have completed a basic Linux course / tutorial such as:
@@ -26,7 +28,7 @@ Also, don't forget about the Linux CLI cheatsheets (e.g., [this](https://cheatog
 
 AWS is a cloud provider which allows users to create small linux servers for free. Create an AWS account and follow their [tutorial](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance) to set up a linux server (you don't need to change the default security group settings). **Note**: Select the  `Ubuntu Server 20.04 LTS` image. Make sure that you select the `t2.micro` instance type. Leave all other settings as default. 
 
-**NOTE** DO NOT PAY FOR ANYTHING. Make sure that you only select "free tier eligible" options so that you don't get charged anything. You can also [sign up](https://aws.amazon.com/education/awseducate/) for an AWS Educate account (if you are a student) to get $30 in free credits without providing credit card info. Also, be careful with anything that's not in the free tier (there's no need to use paid services in this tutorial) -- you can find yourself spending a lot of money very quickly if you create an expensive server and leave it running for a long time.
+**NOTE** DO NOT PAY FOR ANYTHING -- there's no need to use paid services in this training. Ensure everything you use is "free tier eligible". 
 
 ## Connect to your linux instance using ssh and SFTP
 
@@ -36,11 +38,13 @@ Secure File Transfer Protocol (SFTP) is a protocol for encrypted file transfers 
 
 **NOTE**: For any of the methods below, you can connect to the `Public IPv4 address` or the `Public IPv4 DNS` listed in the EC2 instance page for your server. The username will be `ubuntu` and you need the private key (`.pem`) file that was provided by AWS in order to connect.
 
-### For Windows users only
+### Connect to the EC2 (Windows-version)
+
+Please choose one of the following methods for connecting to your EC2 instance:
 
 #### MobaXTerm (ssh and SFTP)
 
-You're in luck! Windows is actually the best OS for connecting to remote linux servers because of [MobaXTerm](https://mobaxterm.mobatek.net/). MobaXTerm is, by far, the easiest way to connect to and utilize linux machines. It has tabbed ssh sessions, a built-in SFTP panel, remote text editing, and so much more -- and it's free! [Here](https://www.devopshint.com/how-to-connect-to-aws-ec2-instance-using-mobaxterm/) is a very brief tutorial on how to connect to AWS EC2 using MobaXTerm. 
+You're in luck! Windows is actually the best OS for connecting to remote linux servers because of [MobaXTerm](https://mobaxterm.mobatek.net/). MobaXTerm has tabbed ssh sessions, a built-in SFTP panel, remote text editing, and so much more -- and it's free! [Here](https://www.devopshint.com/how-to-connect-to-aws-ec2-instance-using-mobaxterm/) is a very brief tutorial on how to connect to AWS EC2 using MobaXTerm. 
 
 #### PuTTY (ssh)
 
@@ -50,19 +54,21 @@ PuTTY is a popular ssh client on Windows and you can find a tutorial for connect
 
 The Windows Subsystem for Linux (WSL) is a very useful tool for any Windows-based developer to know about. It also has a built-in ssh client which you can use for connecting to your linux server. Learn how to set up WSL [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10). Learn how to connect to your linux EC2 instance [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/WSL.html).
 
-### For MacOS Only
+### Connect to the EC2 (MacOS-version)
+
+Please choose one of the following methods for connecting to your EC2 instance:
 
 #### Terminal
 
 The method preferred by many MacOS developers is simply to use the built-in `terminal`. [Here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html) is the relevant section of the AWS tutorial -- the MacOS terminal should have an ssh client built in which you can use. 
 
-### For Windows and MacOS
+### SFTP (both Windows and MacOS)
+
+Please use the following methods to establish an SFTP connection with your EC2 instance (**NOTE**: MobaXTerm users will not need to complete this part): 
 
 #### FileZilla (SFTP)
 
 [FileZilla](https://filezilla-project.org/) is an excellent, free FTP client which you can use for SFTP connections to remote machines. [Here](https://docs.aws.amazon.com/transfer/latest/userguide/transfer-file.html) is a tutorial which includes a section about using FileZilla for connecting to AWS EC2 instances. 
-
-**NOTE**: MobaXTerm users will not need FileZilla.
 
 #### Alternatives to FileZilla (SFTP)
 
@@ -92,16 +98,16 @@ Once you have successfully connected, complete the following steps:
 
 While fancy GUI-based editors like RStudio and VSCode are the best tools for most of your coding needs, there will be times when you need to write code, edit configs, and modify text files on remote servers where no GUI-based editor exists. While there are several strategies to get a GUI editor on a remote server (such as `jupyter-hub`, `rstudio-server`, or simply using `X11` forwarding), the most versitile and popular approach is to use a CLI-based text editor like `vim` or `nano`. 
 
-Using `nano` (recommended), `emacs`, or `vim`, complete the following:
+Using `nano` (recommended), `emacs`, `vi`, or `vim`, complete the following:
 
 1. Open `hello_world.txt`
 2. Change `world` to `Linux`.
-3. Save your changes to the file.
+3. Save your changes to the file. **Q5. What editor did you use and what was the command to save your file changes?**
 4. Run `cat` on your modified file. The output should be `Hello Linux!`.
 
 ## Set up a protected sudoer account and connect with it
 
-While using the default `ubuntu` account is convenient, it also creates severe security issues. Anyone who holds your key (`.pem` file) has total control over your server. That's why it is good practice to make a secure admin account which has password-protected `sudo` capabilities. *Bonus points if you can figure out how to do 2FA instead.*
+While using the default `ubuntu` account is convenient, it also creates severe security issues. Anyone who holds your key (`.pem` file) has total control over your server. That's why it is good practice to make a secure admin account which has password-protected `sudo` capabilities. 
 
 Complete the following:
 
@@ -110,7 +116,7 @@ Complete the following:
 3. Use the `sudo usermod` command to give `sudouser` the ability to use the `sudo` command. 
 4. Switch to the `sudouser` account with `su - sudouser`. You should now see `sudouser@ip-xxx-xx-xx-xxx:~$` at beginning of each line. This indicates you are now logged in as `sudouser`. 
 5. Run `sudo ls /root` to confirm that `sudo` is working -- you should see it output the word `snap`.
-6. Finally, close your `ssh` client. Re-open it and then connect again with the username `sudouser` but with ALL other connection settings the same as before. This should lead to an error. **Q5. Why didn't that work?** Solve the issue.  **Q6. What was the solution?** To complete this training, you have to log in as `sudouser` and correctly explain what went wrong (see hints 1 and 2 below). There is no reason to switch to a different `ssh` client. MobaXTerm, WSL, PuTTY, and Terminal all work fine for this. (Also, if you didn't get an error when logging in as `sudouser`, let Henry know...)
+6. Finally, close your `ssh` client. Re-open it and then connect again with the username `sudouser` but with ALL other connection settings the same as before. This should lead to an error. **Q6. What is the error?** Solve the issue.  **Q7. What was the solution?** To complete this training, you have to log in as `sudouser` and correctly explain what went wrong (see hints 1 and 2 below). There is no reason to switch to a different `ssh` client. MobaXTerm, WSL, PuTTY, and Terminal all work fine for this. (Also, if you didn't get an error when logging in as `sudouser`, let Henry know...)
 7. Once you finally log in with `sudouser`, confirm again that you have `sudo` access by running `sudo ls /root`.
 8. If you are certain that your `sudouser` login is working correctly, delete the `ubuntu` account with the `deluser` command. You should now be unable to log in as `ubuntu`.
 
@@ -123,25 +129,25 @@ Complete the following:
 Log in as `sudouser`. Now that you are on a password-protected `sudo` account, it's time to start setting up your system. One of your first tasks will be to update the system and then install Docker. Docker is an excellent tool for managing software using 'containers'. Learn more about getting started with Docker [here](https://docs.docker.com/get-started/). For now, complete the following:
 
 1. Update the system by running the following:
-```
+```shell
 sudo apt-get update
 sudo apt-get upgrade
 ```
 2. Complete the steps in the Docker [guide](https://docs.docker.com/engine/install/ubuntu/) to install docker.
 3. Run the following to confirm it is working:
-```
+```shell
 sudo docker run hello-world
 ```
 4. Pull the docker image for the `salmon` pseudomapper ([about](https://salmon.readthedocs.io/en/latest/salmon.html)).
-```
+```shell
 sudo docker pull combinelab/salmon
 ```
 5. Confirm that `salmon` is working by running the following:
-```
+```shell
 sudo docker run combinelab/salmon salmon swim
 ```
-6. Regarding the previous command, **Q7. what does the `sudo docker run` part of the command do? and what does the `salmon swim` part of the command do?** Read the docs for docker and run `salmon -h` for more info. The output for `salmon swim` should look like this:
-```
+6. Regarding the previous command, **Q8. what does the `sudo docker run` part of the command do? and what does the `salmon swim` part of the command do?** Read the docs for docker and run `salmon -h` for more info. The output for `salmon swim` should look like this:
+```shell
 Version Info: This is the most recent version of salmon.
 
     _____       __
@@ -153,7 +159,7 @@ Version Info: This is the most recent version of salmon.
 ```
 
 7. Now that you're done, free up space by removing unused docker images.
-```
+```shell
 sudo docker system prune -a
 ```
 
@@ -163,55 +169,92 @@ While `sudo` access is convenient for when you need to install / update software
 
 1. Create a new user account, `serveruser`, that has a strong and randomly-generated password, a home directory, and the ability to access the server.
 2. Successfully connect to the server using `serveruser`.
-3. Try running `sudo ls /root`, **Q8. What is the output of this command?**
+3. Try running `sudo ls /root`, **Q9. What is the output of this command?**
 
 ## Miniconda
 
 Anaconda / Miniconda is the most popular package management tool for data science and bioinformatics. It also allows users to install software without `sudo` access, making it useful for a variety of linux environments. 
 
 As `serveruser`, complete the following:
-1. Download the [miniconda3 installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh) using `wget` or `curl`. 
+1. Download [miniconda3](https://docs.conda.io/en/latest/miniconda.html) (get the latest version for "Linux 64-bit") using `wget` or `curl`. 
 2. Run the installer `.sh` script to complete the install. When prompted with `Do you wish the installer to initialize Miniconda3 by running conda init? [yes|no]` answer `yes`. 
 3. Close and re-open your ssh session (log in as `serveruser` again). If the install worked, you will now see `(base)` in front of the command line prompt. 
-4. Use `conda` to install `salmon`. **Note**: If you are ever unsure of the correct `conda` command to install a package, simply google "Conda install (package_name)" and click the first result. For example, if I didn't know how to install salmon, I would have googled "conda install salmon" and then found this [page](https://anaconda.org/bioconda/salmon) which shows the install command I need.\*
+4. Use `conda` to install `flask` (a python package for web development).  Read the `conda install` reference ([here](https://docs.conda.io/projects/conda/en/latest/commands/install.html)) for additional guidance. 
+5. **Q10. What is the output of `flask --version`?**
+
+### Mamba
+
+Conda is effective at installing packages and system dependencies for them. However, it is relatively slow. To overcome this issue, a much faster version of `conda`, called `mamba`, has been developed. Install `mamba` now. **Hint**: you will probably need to specify the channel to install it from.
+
+**Q11. What is the output of `mamba -V`?**
+
+### Conda environments
+
+`mamba` / `conda` can create independent, self-contained package environments. This allows users to have multiple versions of packages and programming languages installed simultaneously without conflicts. 
+
+When you begin using `mamba` / `conda`, you will be in the `(base)` environment. It is not advisable to install packages into this environment as this can cause a variety of issues and will eventually slow down `mamba` / `conda` performance. 
+
+1. Create a new `mamba` environment called "py27" with python 2.7 installed in it. **Note** read the [docs](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) for further guidance -- but make sure to use `mamba` instead of `conda`.  
+2. Activate your new environment with:
+
+```shell
+conda activate py27
 ```
-conda install -c bioconda -c conda-forge salmon
+
+3. **Q12. What is the output of `which python`?**
+4. Return to your `(base)` environment with:
+
+```shell
+conda deactivate
 ```
 
-**Note:** This code has been updated to include `-c conda-forge` because new `conda` installations on new EC2 instances may lack some core libraries that cannot be obtained through `bioconda` alone.
+5. **Q13. What is the output of `which python` now?**
 
-\*This may produce an error for some users. If it does, try using your google skills and see if you can solve it. A good idea is to google the name of the tool + the content of the error message. You can also visit the GitHub page for the tool and search in the "Issues" section. If you can't find the solution after 30 minutes, ask Henry and he will help you. 
-5. Read the `conda install` reference ([here](https://docs.conda.io/projects/conda/en/latest/commands/install.html)). In the previous command, **Q9. what does `-c bioconda` do?**
-6. Confirm this worked by running `salmon swim`. 
+### Installing `salmon`
 
-## Simple RNA-Seq analysis `salmon`
+Use what you've learned in the previous steps to set up your environment for RNA-Seq analysis with `salmon`.
+
+1. Using `mamba`, install `salmon` version `1.4.0` into a new environment called `salmonEnv` **Hint**: you will need both the `bioconda` and `conda-forge` channels.
+2. Activate `salmonEnv`.
+3. **Q14. What is the output of `salmon -h`?**
+
+## Simple RNA-Seq analysis with `salmon`
 
 ### Part 1: Generating the transcriptome index
 
-RNA-Sequencing is a technique used for measuring RNA species under various conditions. The most common application for this technology is differential gene expression (DGE), which answers the question "how does gene expression change under different conditions?". To perform DGE analysis, we first need a read count matrix, which is generated by quantifying RNA-Seq reads against a transcriptome. `salmon` is a popular CLI program for generating a read count matrix -- it does this quickly and with very little computational overhead. This is important because you're currently on a machine with only 1 core and 1 GB of RAM!
+RNA-Sequencing is a technique used for measuring RNA species under various conditions. The most common application for this technology is differential gene expression (DGE), which answers the question "how does gene expression change under different conditions?". To perform DGE analysis, we first need a read count matrix, which is generated by quantifying RNA-Seq reads against a transcriptome. `salmon` is a very low-overhead CLI program for generating a read count matrix (which is important because you're currently on a machine with only 1 core and 1 GB of RAM!)
 
 To generate a gene count matrix, do the following:
 
-1. Download the transcriptome for *arabidopsis thaliana*, the "thale cress". **Q10. What does the `-o athal.ga.gz` part of the command do?**  **Q11. What is a `.gz` file?**
-```
+1. Download the transcriptome for *arabidopsis thaliana*, the "thale cress". **Q15. What does the `-o athal.fa.gz` part of the command do?**  **Q16. What is a `.gz` file?**
+```shell
 curl ftp://ftp.ensemblgenomes.org/pub/plants/release-28/fasta/arabidopsis_thaliana/cdna/Arabidopsis_thaliana.TAIR10.28.cdna.all.fa.gz -o athal.fa.gz
 ```
-2. Examine this file using `zcat` and `head`. Also, answer the following: **Q12. What does the `zcat` command do?**, **Q13. what does the `head` command do?**, **Q14. what does the number `100` signify in the command?**, **Q15. What is `|` doing?** -- **Hint** using `|` in Linux is called "piping"  
-```
+2. Examine this file using `zcat` and `head`:
+
+```shell
 zcat athal.fa.gz | head -n 100
 ```
-3. Build the `salmon` index. You can find the docs with detailed instructions ([here](https://salmon.readthedocs.io/en/latest/index.html)). **Note**: The index should take ~ 4-5 minutes to build and you do NOT need `decoys.txt`, so leave that part out. Adding extra arguments may also cause your machine to run out of memory -- use only the arguments in the tutorial (minus the `decoys.txt` part).
+
+Then, answer:
+- **Q17. What does the `zcat` command do?**
+- **Q18. what does the `head` command do?**
+- **Q19. what does the number `100` signify in the command?**
+- **Q20. What is `|` doing?** -- **Hint** using `|` in Linux is called "piping"  
+- **Q21. What is a `.fa` file? What is this file format used for?**
+
+3. Build the `salmon` indices for the downloaded transcriptome. You can find the docs with detailed instructions ([here](https://web.archive.org/web/20210118043821/https://salmon.readthedocs.io/en/latest/salmon.html#preparing-transcriptome-indices-mapping-based-mode)). **Note**: The index should take ~ 4-5 minutes to build and you do NOT need `decoys.txt`, so leave that part out. Adding extra arguments may also cause your machine to run out of memory -- use only the arguments in the tutorial (minus the `decoys.txt` part).
 
 ### Part 2: Quantify RNA-Seq data
 
 RNA-Seq data is commonly stored in the Sequencing Read Archive (SRA), a public database hosted by the NCBI. While Gene Expression Omnibus (GEO) is used to access processed datasets, SRA is where the raw sequencing reads can be found. NCBI provides a series of computational tools that can be used to download these data and convert them into the correct format for analysis. 
 
-1. Install `sra-tools` using `conda`. 
-2. Download the RNA-Seq sample "SRR074122" using `prefetch` (part of the SRA tools). The documentation is [here](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=prefetch). **Q16. What format are the downloaded sequencing reads in?** (If this step produces an error, provide the error message in Q16 and then you can also try downloading the file directly from [here](https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR074122/SRR074122) -- note that you can use this file with the succeeding steps.)
-3. Disk (storage) space is a concern when working with large sequencing files. Check your remaining disk space with the `df -h` command. The remaining space will be listed under `/dev/root`. **Q17. What is the total size of the disk?**, **Q18. How much space is remaining on the disk?**
-4. Convert the reads to `fastq` format using `fastq-dump SRR074122`. This should produce an error. Considering the previous question and answer: **Q19. What went wrong?** (if you didn't encounter any errors, let Henry know...)
-5. Delete the partially-generated `.fastq` file. Then, modify the previous `fastq-dump SRR074122` command so that the issue in **Q19** no longer occurs. The documentation for `fastq-dump` is [here](https://ncbi.github.io/sra-tools/fastq-dump.html). **Q20: What was your solution?** **Hint**: consider **Q11**. 
-6. Once you have successfully converted your reads, use `salmon` to quantify them. Set the output folder name as `transcripts_quant/`. **Note** These reads are single-end.
+1. Install `sra-tools` in your `salmonEnv` environment using `mamba`. 
+2. Download the RNA-Seq sample "SRR074122" using `prefetch` (part of the SRA tools). The documentation is [here](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=prefetch). **Q22. What format are the downloaded sequencing reads in?** (If this step produces an error, provide the error message in Q22 and then you can also try downloading the file directly from [here](https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR074122/SRR074122) -- note that you can use this file with the succeeding steps.)
+3. Disk (storage) space is a concern when working with large sequencing files. Check your remaining disk space with the `df -h` command. The remaining space will be listed under `/dev/root`. **Q23. What is the total size of the disk?**, **Q24. How much space is remaining on the disk?**
+4. Convert the reads to `fastq` format using `fastq-dump SRR074122`. This should produce an error. Considering the previous question and answer: **Q25. What went wrong?** (if you didn't encounter any errors, let Henry know and continue...)
+5. Delete the partially-generated `.fastq` file. Then, modify the previous `fastq-dump SRR074122` command so that the issue in **Q25** no longer occurs. The documentation for `fastq-dump` is [here](https://ncbi.github.io/sra-tools/fastq-dump.html). **Q26: What was your solution?** **Hint**: consider **Q16**. 
+6. Once you have successfully converted your reads, use `salmon` to quantify them (using "mapping-based mode"). Set the output folder name as `transcripts_quant/`. **Note** These reads are single-end.
 
 ## Wrap-up
 
