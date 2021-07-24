@@ -200,7 +200,7 @@ curl ftp://ftp.ensemblgenomes.org/pub/plants/release-28/fasta/arabidopsis_thalia
 ```
 zcat athal.fa.gz | head -n 100
 ```
-3. Build the `salmon` index. You can find the docs with detailed instructions ([here](https://salmon.readthedocs.io/en/latest/index.html)). **Note**: The index should take ~ 4-5 minutes to build and you do NOT need `decoys.txt`, so leave that part out. 
+3. Build the `salmon` index. You can find the docs with detailed instructions ([here](https://salmon.readthedocs.io/en/latest/index.html)). **Note**: The index should take ~ 4-5 minutes to build and you do NOT need `decoys.txt`, so leave that part out. Adding extra arguments may also cause your machine to run out of memory -- use only the arguments in the tutorial (minus the `decoys.txt` part).
 
 ### Part 2: Quantify RNA-Seq data
 
