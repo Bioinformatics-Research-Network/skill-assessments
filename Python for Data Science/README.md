@@ -1,6 +1,6 @@
 # Python for Data Science
 
-Suggested pre-requisite: [`Python Programming/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20Programming)
+Pre-requisite: [`Python Programming/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20Programming)
 
 With its clean syntax, massive community, and extensive package ecosystem, python is an excellent language for Data Science. In particular, packages like `scikit-learn`, `pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`, `plotly`, and `bokeh` have an incredible array of functions for doing data science. Python is also the basis for the powerful `Anaconda` ecosystem, including `jupyter-notebook` and `spyder`. Furthermore, `RStudio`, a mainstay in `R` for Data Science, also now supports `Python` programming. 
 
