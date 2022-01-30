@@ -1,6 +1,6 @@
 # Back-End Web Development
 
-Suggested Pre-requisites: [Python for Data Science](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20for%20Data%20Science) and [Linux for Bioinformatics](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Linux%20for%20Bioinformatics)
+Pre-requisites: [Python for Data Science](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20for%20Data%20Science) and [Linux for Bioinformatics](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Linux%20for%20Bioinformatics)
 
 **Note** This miniproject is experimental -- if you find flaws or have other suggestions, let Henry know.
 
