@@ -1,6 +1,6 @@
 # ChIP-Seq Analysis
 
-Suggested pre-requisite: [`R for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science)
+Pre-requisite: [`R for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science)
 
 ChIP-Seq is a technique for finding the sites that a protein binds to in the genome. It has a wide range of applications from mapping histone modifications to uncovering transcription factor gene targets. In this miniproject, your goal is to analyze two ChIP-Seq datasets and compare the results. This will require you to excercise your biological and informatics knowledge. The result will be an HTML report outlining the purpose of your analysis, the methods you used, your results, and your discussion / conclusion. It should be written in such a way that biologists who have no bioinformatics training can understand it.
 
