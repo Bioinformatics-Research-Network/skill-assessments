@@ -1,6 +1,6 @@
 # Supervised Machine Learning
 
-Suggested pre-requisite: [`R for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science) or [`Python for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20for%20Data%20Science)
+Pre-requisite: [`R for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science) or [`Python for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20for%20Data%20Science)
 
 
 Supervised machine learning is a field of data science concerned with training predictive models for various tasks. An example would be a linear model that can predict a person's weight based on their height. In this miniproject, you will perform a supervised machine learning analysis and build a model that can predict whether passengers aboard the Titanic are likely to survive or not. Complete the following:
