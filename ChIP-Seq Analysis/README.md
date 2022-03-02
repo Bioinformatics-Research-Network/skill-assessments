@@ -14,7 +14,8 @@ Select any two ChIP-Seq datasets from [ENCODE](https://www.encodeproject.org/) â
 6. What genes and pathways/genesets shared between these datasets? What pathways differ? What is your interpretation of these results? What future directions could you propose to follow up on these findings? (No right answers to these questions, just important to think through this part).
 
 
-All code and `.html` should be commited using `git` and pushed to your fork of the training repo on GitHub. Once you are done, let Henry know and he will check your `.html` report. 
+When you are done, send your HTML report to Henry for review.
+
 
 Useful resources for learning this analysis approach:
 1. ChIP-Seq tutorial on `ChIPseeker` [here](https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html)

@@ -1,7 +1,5 @@
 # Basic Data Science Web Development
 
-**This challenge can be completed using `R-Shiny` OR `plotly-dash`**
-
 Pre-requisites (if using `python`): [Python Programming](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20Programming) and [Python for Data Science](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/Python%20for%20Data%20Science)
 
 Pre-requisites (if using `R`): [R Programming](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20Programming) and [R for Data Science](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science)

@@ -5,6 +5,7 @@ This repository contains the instructions and data necessary for completing the 
 **NOTE**: In general, all commits should be made locally and then pushed to GitHub for these trainings. Files should not be directly uploaded to github via the browser. No submissions will be accepted if they have commits such as "Add files via upload" which indicate version control was not properly used. 
 
 ![image](https://user-images.githubusercontent.com/44813811/113608855-af529480-9610-11eb-99d1-fe9279ebc7bb.png)
+This repository contains the instructions and data necessary for completing the training prerequisits for each project. Each folder is named after the training it provides -- complete the instructions in the README file within each relevant folder and then send Henry the results when you are done. 
 
 If you run into any issues, feel free to reach out for help over Slack. Once you complete training, please be available to help others! We cannot succeed without working together. 
 
