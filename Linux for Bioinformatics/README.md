@@ -269,17 +269,6 @@ RNA-Seq data is commonly stored in the Sequencing Read Archive (SRA), a public d
 ## Wrap-up
 
 To complete the project, commit and push your `answers.md` to your fork. Then, let Henry know (and send him the link to your fork and anything required to access your AWS server as `serveruser`). He will access the server, check your configuration and your `quant.sf` file -- and will certify completion of the miniproject if everything is correct.
-1. Install `sra-tools` using `conda`. 
-2. Download the RNA-Seq sample "SRR074122" using `prefetch` (part of the SRA tools). The documentation is [here](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=prefetch). **Q16. What format are the downloaded sequencing reads in?**
-3. Disk (storage) space is a concern when working with large sequencing files. Check your remaining disk space with the `df -h` command. The remaining space will be listed under `/dev/root`. **Q17. What is the total size of the disk?**, **Q18. How much space is remaining on the disk?**
-4. Convert the reads to `fastq` format using `fastq-dump SRR074122`. This should produce an error. Considering the previous question and answer: **Q19. What went wrong?** (if you didn't encounter any errors, let Henry know...)
-5. Delete the partially-generated `.fastq` file. Then, modify the previous `fastq-dump SRR074122` command so that the issue in **Q19** no longer occurs. The documentation for `fastq-dump` is [here](https://ncbi.github.io/sra-tools/fastq-dump.html). **Q20: What was your solution?** **Hint**: consider **Q11**. 
-6. Once you have successfully converted your reads, use `salmon` to quantify them. Set the output folder name as `transcripts_quant/`. **Note** These reads are single-end.
-
-## Wrap-up
-
-To complete the project, send Henry your `answers.md` file along with anything required to access your AWS server as `serveruser`. He will access the server, check your configuration and your `quant.sf` file -- and will certify completion of the miniproject if everything is correct.
-
 
 
 
