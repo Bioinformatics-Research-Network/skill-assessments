@@ -162,8 +162,6 @@ Version Info: This is the most recent version of salmon.
 ```shell
 sudo docker system prune -a
 ```
-sudo docker system prune
-```
 
 ## Set up a non-sudo user account
 
