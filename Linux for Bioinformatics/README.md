@@ -211,8 +211,11 @@ conda deactivate
 5. **Q13. What is the output of `which python` now?**
 
 ### Installing `salmon`
+
+```shell
 conda install -c bioconda salmon
 ```
+
 \*This may produce an error for some users. If it does, try using your google skills and see if you can solve it. A good idea is to google the name of the tool + the content of the error message. You can also visit the GitHub page for the tool and search in the "Issues" section. If you can't find the solution after 30 minutes, ask Henry and he will help you. 
 5. Read the `conda install` reference ([here](https://docs.conda.io/projects/conda/en/latest/commands/install.html)). In the previous command, **Q9. what does `-c bioconda` do?**
 6. Confirm this worked by running `salmon swim`. 
@@ -232,9 +235,11 @@ RNA-Sequencing is a technique used for measuring RNA species under various condi
 To generate a gene count matrix, do the following:
 
 1. Download the transcriptome for *arabidopsis thaliana*, the "thale cress". **Q15. What does the `-o athal.fa.gz` part of the command do?**  **Q16. What is a `.gz` file?**
+
 ```shell
 curl ftp://ftp.ensemblgenomes.org/pub/plants/release-28/fasta/arabidopsis_thaliana/cdna/Arabidopsis_thaliana.TAIR10.28.cdna.all.fa.gz -o athal.fa.gz
 ```
+
 2. Examine this file using `zcat` and `head`:
 
 ```shell
