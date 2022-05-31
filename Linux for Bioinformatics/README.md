@@ -171,6 +171,8 @@ While `sudo` access is convenient for when you need to install / update software
 2. Successfully connect to the server using `serveruser`.
 3. Try running `sudo ls /root`, **Q9. What is the output of this command?**
 
+**Complete all the following steps with the `serveruser` account**.
+
 ## Miniconda
 
 Anaconda / Miniconda is the most popular package management tool for data science and bioinformatics. It also allows users to install software without `sudo` access, making it useful for a variety of linux environments. 
@@ -184,7 +186,7 @@ As `serveruser`, complete the following:
 
 ### Mamba
 
-Conda is effective at installing packages and system dependencies for them. However, it is relatively slow. To overcome this issue, a much faster version of `conda`, called `mamba`, has been developed. Install `mamba` now. **Hint**: you will probably need to specify the channel to install it from.
+Conda is effective at installing packages and system dependencies for them. However, it is relatively slow. To overcome this issue, a much faster version of `conda`, called [`mamba`](https://github.com/mamba-org/mamba), has been developed. Install `mamba` now. **Hint**: you will probably need to specify the [channel](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html) to install it from.
 
 **Q11. What is the output of `mamba -V`?**
 
@@ -211,14 +213,6 @@ conda deactivate
 5. **Q13. What is the output of `which python` now?**
 
 ### Installing `salmon`
-
-```shell
-conda install -c bioconda salmon
-```
-
-\*This may produce an error for some users. If it does, try using your google skills and see if you can solve it. A good idea is to google the name of the tool + the content of the error message. You can also visit the GitHub page for the tool and search in the "Issues" section. If you can't find the solution after 30 minutes, ask Henry and he will help you. 
-5. Read the `conda install` reference ([here](https://docs.conda.io/projects/conda/en/latest/commands/install.html)). In the previous command, **Q9. what does `-c bioconda` do?**
-6. Confirm this worked by running `salmon swim`. 
 
 Use what you've learned in the previous steps to set up your environment for RNA-Seq analysis with `salmon`.
 
