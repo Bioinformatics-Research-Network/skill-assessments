@@ -46,6 +46,8 @@ Please choose one of the following methods for connecting to your EC2 instance:
 
 You're in luck! Windows is actually the best OS for connecting to remote linux servers because of [MobaXTerm](https://mobaxterm.mobatek.net/). MobaXTerm has tabbed ssh sessions, a built-in SFTP panel, remote text editing, and so much more -- and it's free! [Here](https://www.devopshint.com/how-to-connect-to-aws-ec2-instance-using-mobaxterm/) is a very brief tutorial on how to connect to AWS EC2 using MobaXTerm. 
 
+**June 2022 note**: some users are experiencing an issue using their private key (.pem file) to log into their EC2 instance with MobaXTerm (Error message: "Server refused our key"). [This solution](https://superuser.com/a/1679777/1239769) should fix the problem. It requires that you login using a command-line connection string like this: `ssh -i "/path/to/your/key.pem" ubuntu@yourserverlocation.com` -- and then changing the settings in `/etc/ssh/sshd_config` using a text editor such as *vim* or *nano*. If you are still having issues after trying this, please contact Henry and he will assist you.
+
 #### PuTTY (ssh)
 
 PuTTY is a popular ssh client on Windows and you can find a tutorial for connecting to an AWS EC2 instance from PuTTY [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html). 
