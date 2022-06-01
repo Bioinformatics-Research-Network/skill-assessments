@@ -247,7 +247,7 @@ Then, answer:
 - **Q20. What is `|` doing?** -- **Hint** using `|` in Linux is called "piping"  
 - **Q21. What is a `.fa` file? What is this file format used for?**
 
-3. Build the `salmon` indices for the downloaded transcriptome. You can find the docs with detailed instructions ([here](https://web.archive.org/web/20210118043821/https://salmon.readthedocs.io/en/latest/salmon.html#preparing-transcriptome-indices-mapping-based-mode)). **Note**: The index should take ~ 4-5 minutes to build and you do NOT need `decoys.txt`, so leave that part out. Adding extra arguments may also cause your machine to run out of memory -- use only the arguments in the tutorial (minus the `decoys.txt` part).
+3. Build the `salmon` indices for the downloaded transcriptome. You can find the docs with detailed instructions ([here](https://web.archive.org/web/20210118043821/https://salmon.readthedocs.io/en/latest/salmon.html#preparing-transcriptome-indices-mapping-based-mode)). **Note**: The index should take ~ 4-5 minutes to build and you do NOT need `decoys.txt`, so leave that part out. Adding extra arguments may also cause your machine to run out of memory -- use only the arguments in the tutorial (minus the `decoys.txt` part). **Note**: You should not need more than 450MB to build this index (last tested on Ubuntu 22.04 LTS and 20.04 LTS in June 2022). If you find that you are running out of memory (or storage), please double check your index command to ensure it uses the correct file with the `-t` flag. If you still find issues during this step, contact Henry and he will assist you.
 
 ### Part 2: Quantify RNA-Seq data
 
@@ -258,7 +258,9 @@ RNA-Seq data is commonly stored in the Sequencing Read Archive (SRA), a public d
 3. Disk (storage) space is a concern when working with large sequencing files. Check your remaining disk space with the `df -h` command. The remaining space will be listed under `/dev/root`. **Q23. What is the total size of the disk?**, **Q24. How much space is remaining on the disk?**
 4. Convert the reads to `fastq` format using `fastq-dump SRR074122`. This should produce an error. Considering the previous question and answer: **Q25. What went wrong?** (if you didn't encounter any errors, let Henry know and continue...)
 5. Delete the partially-generated `.fastq` file. Then, modify the previous `fastq-dump SRR074122` command so that the issue in **Q25** no longer occurs. The documentation for `fastq-dump` is [here](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=fastq-dump). **Q26: What was your solution?** **Hint**: consider **Q16**. 
-6. Once you have successfully converted your reads, use `salmon` to quantify them (using "mapping-based mode"). Set the output folder name as `transcripts_quant/`. **Note** These reads are single-end.
+6. Once you have successfully converted your reads, use `salmon` to quantify them (using "mapping-based mode"). Set the output folder name as `transcripts_quant/`. **Note** These reads are single-end. **Note**: You should not need more than 610MB of RAM for this step (last tested on Ubuntu 22.04 LTS and 20.04 LTS in June 2022). If you find that you are using more than that, please re-check the index command you used in the previous section. If you still find issues during this step, contact Henry and he will assist you.
+
+A couple notes
 
 ## Wrap-up
 
