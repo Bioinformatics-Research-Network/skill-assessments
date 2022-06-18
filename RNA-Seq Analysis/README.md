@@ -17,9 +17,9 @@ Then, do the following in R Markdown:
 2. Create a PCA plot colored by the condition of interest
 3. Create a Volcano Plot
 4. Create a heatmap with the top 10 over-expressed DEGs, and top 10 under-expressed DEGs
-	- Top is defined by DEGs having the lowest adjusted p-values, where the absolute log2 fold change is > 1
+	- Top is defined by DEGs having the lowest adjusted p-values
 5. Do GSEA on the results and plot the top 5 pathways
-	- Make sure you use an appropriate [ranking metric](https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideTEXT.htm#_Metrics_for_Ranking) (other metrics outside this document are also acceptable if justified)
+	- For your ranking metric, use the `stat` column from your `DESeq2` results
 	- Top is defined by pathways with the lowest adjusted p-values
 6. Make sure to export your R Markdown to HTML and that it comes out looking correctly -- example of an HTML export of RMarkdown: https://static-html-pages.s3-us-west-2.amazonaws.com/merck-project/RloopCorrelationSummary.html
 	- Also include a floating TOC, and foldable code snippets that are folded by default
