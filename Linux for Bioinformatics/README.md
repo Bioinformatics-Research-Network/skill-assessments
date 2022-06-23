@@ -169,7 +169,7 @@ sudo docker system prune -a
 
 While `sudo` access is convenient for when you need to install / update software system-wide, you can't always count on having it. In fact, it's safer to limit the number of users with `sudo` access, so most systems will only have a few of them. The rest of the users will be non-`sudo`. Complete the following to set up a non-`sudo` account:
 
-1. Create a new user account, `serveruser`, that has a strong and randomly-generated password, a home directory, and the ability to access the server.
+1. Create a new user account, `serveruser`, that has a strong and randomly-generated password, a home directory, and the ability to access the server **without a private key file**.
 2. Successfully connect to the server using `serveruser`.
 3. Try running `sudo ls /root`, **Q9. What is the output of this command?**
 
