@@ -5,8 +5,6 @@ Pre-requisite: [`R Programming/`](https://github.com/Bioinformatics-Research-Net
 
 `R` is an excellent language for Data Science. Some might even argue that Data Science is what `R` is for! 
 
-While `Python` is also an excellent language, it still lags far behind the convenience and extensibility of the `R` Data Science ecosystem. Even the `DataFrame` structure is built into base `R` without any extra package needed! Moreover, there is no better tool than `RStudio` for writing code that quickly and efficiently completes Data Science tasks. 
-
 In this miniproject, your task is to analyze the `gapminder_clean.csv` dataset using `R` and the `tidyverse`. Wherever possible, your code should use `tidyverse` functions. For example:
 
 Instead of this:
@@ -47,6 +45,17 @@ Now, without further guidance, use your `R` Data Science skills (and appropriate
 For each question, you should generate summary visualizations (preferrably interactive ones) that demonstrate your answer to each question. Additionally, the analysis must be user-friendly for a non-programmer and should intuitively convey the insights you uncovered. Use `markdown` to ensure that the text is organized and readable. 
 
 Once you are done, export your `RMarkdown` to an `.html` file and share it with Henry.
+
+### Additional requirements
+
+For a passing evaluation, the code and HTML from this analysis should conform to the following standards:
+
+1. When possible, the analysis should be "self-reporting" (i.e., results should not be hardcoded into the markdown.) You can accomplish this with inline `r ...` chunks -- learn more [here](https://rmarkdown.rstudio.com/lesson-4.html).
+2. Code style counts. Make sure to style your notebook using `{{[styler](https://www.tidyverse.org/blog/2017/12/styler-1.0.0/)}}` before submitting it!
+3. The HTML rendered from the notebook should be user-friendly and well-styled as well.
+    - Consider using a [theme](https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style) for your notebook, along with a [table of contents](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents)
+    - Optimize your plots for readability -- [tutorial](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
+    - Refrain from showing raw text output to the reader as this is unfriendly for non-computational readers. Especially, for tables, consider using `{{[kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)}}` or `{{[DT](https://rstudio.github.io/DT/)}}`.
 
 ## Learning Resources
 
