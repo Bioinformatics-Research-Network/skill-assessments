@@ -2,6 +2,8 @@
 
 Pre-requisite: [`R for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science)
 
+## Instructions
+
 ChIP-Seq is a technique for finding the sites that a protein binds to in the genome. It has a wide range of applications from mapping histone modifications to uncovering transcription factor gene targets. In this miniproject, your goal is to analyze two ChIP-Seq datasets and compare the results. This will require you to excercise your biological and informatics knowledge. The result will be an HTML report outlining the purpose of your analysis, the methods you used, your results, and your discussion / conclusion. It should be written in such a way that biologists who have no bioinformatics training can understand it.
 
 Select any two ChIP-Seq datasets from [ENCODE](https://www.encodeproject.org/) – download the peaks for both, in ‘bed narrowPeak’ format. It doesn’t matter much what options you choose beyond that, though I typically prefer IDR thresholded peaks. For example, NFE2L2 ChIP-Seq ([data set](https://www.encodeproject.org/experiments/ENCSR584GHV/) -- [peaks](https://www.encodeproject.org/files/ENCFF418TUX/)) and BRCA1 ChIP-Seq ([dataset](https://www.encodeproject.org/experiments/ENCSR343RJR/) -- [peaks](https://www.encodeproject.org/files/ENCFF791SNR/)). But, since these are the examples, you cannot use either of them in your analysis. Once you have selected your datasets, do the following:
@@ -16,6 +18,19 @@ Select any two ChIP-Seq datasets from [ENCODE](https://www.encodeproject.org/) �
 
 When you are done, send your HTML report to Henry for review.
 
+### Additional requirements
+
+For a passing evaluation, the code and HTML from this analysis should conform to the following standards:
+
+1. When possible, the analysis should be "self-reporting" (i.e., results should not be hardcoded into the markdown.) You can accomplish this with inline code chunks -- learn more [here](https://rmarkdown.rstudio.com/lesson-4.html).
+2. Code style counts. Make sure to style your notebook using [styler](https://www.tidyverse.org/blog/2017/12/styler-1.0.0/) before submitting it!
+3. The HTML rendered from the notebook should be user-friendly and well-styled as well.
+    - Consider using a [theme](https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style) for your notebook, along with a [table of contents](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents)
+    - Optimize your plots for readability -- [tutorial](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
+    - Refrain from showing raw text output to the reader as this is unfriendly for non-computational readers. Especially, for tables, consider using [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) or [DT](https://rstudio.github.io/DT/).
+
+
+## Learning resources
 
 Useful resources for learning this analysis approach:
 1. ChIP-Seq tutorial on `ChIPseeker` [here](https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html)

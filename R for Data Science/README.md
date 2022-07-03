@@ -50,12 +50,12 @@ Once you are done, export your `RMarkdown` to an `.html` file and share it with 
 
 For a passing evaluation, the code and HTML from this analysis should conform to the following standards:
 
-1. When possible, the analysis should be "self-reporting" (i.e., results should not be hardcoded into the markdown.) You can accomplish this with inline `r ...` chunks -- learn more [here](https://rmarkdown.rstudio.com/lesson-4.html).
-2. Code style counts. Make sure to style your notebook using `{{[styler](https://www.tidyverse.org/blog/2017/12/styler-1.0.0/)}}` before submitting it!
+1. When possible, the analysis should be "self-reporting" (i.e., results should not be hardcoded into the markdown.) You can accomplish this with inline code chunks -- learn more [here](https://rmarkdown.rstudio.com/lesson-4.html).
+2. Code style counts. Make sure to style your notebook using [styler](https://www.tidyverse.org/blog/2017/12/styler-1.0.0/) before submitting it!
 3. The HTML rendered from the notebook should be user-friendly and well-styled as well.
     - Consider using a [theme](https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style) for your notebook, along with a [table of contents](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents)
     - Optimize your plots for readability -- [tutorial](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
-    - Refrain from showing raw text output to the reader as this is unfriendly for non-computational readers. Especially, for tables, consider using `{{[kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)}}` or `{{[DT](https://rstudio.github.io/DT/)}}`.
+    - Refrain from showing raw text output to the reader as this is unfriendly for non-computational readers. Especially, for tables, consider using [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) or [DT](https://rstudio.github.io/DT/).
 
 ## Learning Resources
 

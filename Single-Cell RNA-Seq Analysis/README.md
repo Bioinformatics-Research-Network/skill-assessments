@@ -40,6 +40,19 @@ Any work which you perform in addition to the above is up to you -- the only req
 
 Finally, write a brief discussion of the results of your analysis. You should reference your specific findings and discuss how they address your original biological questions. You should emphasize how your analysis results address knowledge gaps and also describe any gaps which remain along with future research directions to pursue in address them.
 
+
+### Additional requirements
+
+For a passing evaluation, the code and HTML from this analysis should conform to the following standards:
+
+1. When possible, the analysis should be "self-reporting" (i.e., results should not be hardcoded into the markdown.) You can accomplish this with inline code chunks -- learn more [here](https://rmarkdown.rstudio.com/lesson-4.html).
+2. Code style counts. Make sure to style your notebook using [styler](https://www.tidyverse.org/blog/2017/12/styler-1.0.0/) before submitting it!
+3. The HTML rendered from the notebook should be user-friendly and well-styled as well.
+    - Consider using a [theme](https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style) for your notebook, along with a [table of contents](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents)
+    - Optimize your plots for readability -- [tutorial](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
+    - Refrain from showing raw text output to the reader as this is unfriendly for non-computational readers. Especially, for tables, consider using [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) or [DT](https://rstudio.github.io/DT/).
+
+
 ## Resources and advice
 
 Single-cell RNA-Seq is conceptually challenging and there is still much debate on how to approach analyzing this kind of data. Here are a few resources that will help you learn how to perform scRNA-Seq analysis:
