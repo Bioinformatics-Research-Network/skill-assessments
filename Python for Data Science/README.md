@@ -21,7 +21,7 @@ Now, without further guidance, use your Python Data Science skills (and the corr
 3. What is the country (or countries) that has the highest `'Population density (people per sq. km of land area)'` across all years? (i.e., which country has the highest average ranking in this category across each time point in the dataset?)
 4. What country (or countries) has shown the greatest increase in `'Life expectancy at birth, total (years)'` since 1962? 
 
-For each question, you should generate summary visualizations (preferrably interactive ones) that demonstrate your answer to each question. Additionally, the analysis must be user-friendly for a non-programmer and should intuitively convey the insights you uncovered. Use `markdown` to ensure that the text is organized and readable. 
+For each question, you should generate summary visualizations (preferrably interactive ones) that demonstrate your answer to each question. Additionally, the analysis must be user-friendly for a non-programmer and should intuitively convey the insights you uncovered. Use `markdown` to ensure that the text is organized and readable. Finally, the notbook should describe your reasoning for the statistical tests you chose to use.
 
 Once you are done, push the notebook to GitHub, generate an `nbviewer` link [here](https://nbviewer.jupyter.org/) and share it with Henry.
 
