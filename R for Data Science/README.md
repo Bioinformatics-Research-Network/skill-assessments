@@ -7,7 +7,7 @@ Pre-requisite: [`R Programming/`](https://github.com/Bioinformatics-Research-Net
 In this miniproject, your task is to analyze the `gapminder_clean.csv` dataset using `R` and the `tidyverse`. Wherever possible, your code should use `tidyverse` functions. For example:
 
 Instead of this:
-```
+```R
 my_data <- my_data[which(my_data$col1 == 10 | my_data$col2 == "Yes"),]
 my_data$new_col <- 10*my_data$col1
 png("my_plot.png")
@@ -16,7 +16,7 @@ title("some title")
 dev.off()
 ```
 Do this:
-```
+```R
 my_data %>%
     filter(col1 == 10 | col2 == "Yes") %>%
     mutate(new_col = 10*col1) %>%

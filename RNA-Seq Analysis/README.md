@@ -38,6 +38,27 @@ For a passing evaluation, the code and HTML from this analysis should conform to
     - Consider using a [theme](https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style) for your notebook, along with a [table of contents](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents)
     - Optimize your plots for readability -- [tutorial](https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
     - Refrain from showing raw text output to the reader as this is unfriendly for non-computational readers. Especially, for tables, consider using [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) or [DT](https://rstudio.github.io/DT/).
+4. All code should be in tidyverse style where appropriate (particularly for data wrangling, filtering, manipulation, etc). This is the same requirement as [R for Data Science](https://github.com/Bioinformatics-Research-Network/skill-assessments/tree/main/R%20for%20Data%20Science):
+
+Instead of this:
+```R
+my_data <- my_data[which(my_data$col1 == 10 | my_data$col2 == "Yes"),]
+my_data$new_col <- 10*my_data$col1
+png("my_plot.png")
+plot(my_data$col1, my_data$new_col)
+title("some title")
+dev.off()
+```
+Do this:
+```R
+my_data %>%
+    filter(col1 == 10 | col2 == "Yes") %>%
+    mutate(new_col = 10*col1) %>%
+    ggplot2(aes(x = col1, y = new_col)) +
+    geom_point() +
+    labs(title="some title") +
+    ggsave("my_plot.png")
+```
 
 
 ### Useful learning resources:

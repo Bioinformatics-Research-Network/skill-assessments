@@ -24,7 +24,7 @@ Create a script that lets you play a full game of tic-tac-toe, given that:
 
 **Hint**: To get user input on the command line, use the following construct:
 
-```
+```R
 if (interactive()) {
   con <- stdin()
 } else {
