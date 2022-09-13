@@ -14,7 +14,7 @@ To complete the miniproject, create an analysis in `jupyter-notebook` which does
 4. On the unfiltered data, answer "In what year is the correlation between `'CO2 emissions (metric tons per capita)'` and `gdpPercap` the strongest?" Filter the dataset to that year for the next step...
 5. Using `plotly` or `bokeh`, create an interactive scatter plot comparing `'CO2 emissions (metric tons per capita)'` and `gdpPercap`, where the point size is determined by `pop` (population) and the color is determined by the `continent`. 
 
-Now, without further guidance, use your Python Data Science skills (and the correct statistical tests) to answer the following:
+Now, without further guidance, use your Python Data Science skills (and the correct statistical tests) to answer the following (*use the unfiltered dataset*):
 
 1. What is the relationship between `continent` and `'Energy use (kg of oil equivalent per capita)'`? (Stats test needed)
 2. Is there a significant difference between Europe and Asia with respect to `'Imports of goods and services (% of GDP)'` in the years after 1990? (Stats test needed)
