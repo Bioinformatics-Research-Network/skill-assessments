@@ -21,8 +21,11 @@ Write a python script that will allow you to play a game of Tic-Tac-Toe against 
 Create a script that lets you play a full game of tic-tac-toe, given that:
 1. The script has to be executable using `python <your_script.py>` (e.g., `python tic-tac-toe.py`).
 2. All the rules of tic-tac-toe are included. `X` always goes first, then `O`. The first to get three-in-a-row wins. A stalemate when no moves remain is a tie.
-3. The script should ask the player to choose moves using a prompt (see example). 
-4. There should be no errors. No matter what the user inputs, they shouldn't see any errors. 
+3. The script should ask the player to choose moves using a prompt (see example).
+4. The player should play tic-tac-toe against the computer (not another human player)
+5. The player can choose "X" or "O"
+6. The code follows python style best practices. Use the [black](https://black.readthedocs.io/en/stable/) to help with that.
+7. There should be no errors. No matter what the user inputs, they shouldn't see any errors. 
 
 **Hint**: To get user input on the command line, use the following construct:
 
