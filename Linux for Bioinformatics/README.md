@@ -175,41 +175,46 @@ While `sudo` access is convenient for when you need to install / update software
 
 **Complete all the following steps with the `serveruser` account**.
 
-## Miniconda
+## Mamba
 
-Anaconda / Miniconda is the most popular package management tool for data science and bioinformatics. It also allows users to install software without `sudo` access, making it useful for a variety of linux environments. 
+[Mamba](https://mamba.readthedocs.io/en/latest/) is a package management tool for data science and bioinformatics. It is based on the popular [conda](https://docs.conda.io/en/latest/) package manager, but it is much faster and uses less RAM. It also allows users to install software without `sudo` access, making it useful for a variety of linux environments. 
 
 As `serveruser`, complete the following:
-1. Download [miniconda3](https://docs.conda.io/en/latest/miniconda.html) (get the latest version for "Linux 64-bit") using `wget` or `curl`. 
-2. Run the installer `.sh` script to complete the install. When prompted with `Do you wish the installer to initialize Miniconda3 by running conda init? [yes|no]` answer `yes`. 
+1. Download [mambaforge](https://github.com/conda-forge/miniforge#mambaforge) (get the latest version for "Linux x86_64") using `wget` or `curl`. 
+2. Run the installer `.sh` script to complete the install. When prompted with `Do you wish the installer to initialize Mambaforge by running conda init? [yes|no]` answer `yes`. 
 3. Close and re-open your ssh session (log in as `serveruser` again). If the install worked, you will now see `(base)` in front of the command line prompt. 
-4. Use `conda` to install `flask` (a python package for web development).  Read the `conda install` reference ([here](https://docs.conda.io/projects/conda/en/latest/commands/install.html)) for additional guidance. 
+4. Use `mamba` to install `flask` (a python package for web development) (**see hint below**). 
 5. **Q10. What is the output of `flask --version`?**
+6. **Q11. What is the output of `mamba -V`?**
 
-### Mamba
+**Hint**: If you are ever unsure how to use `mamba`, remember that it is generally the same as `conda` except that you replace "conda" with "mamba." For example, if I wanted to install [fastapi](https://fastapi.tiangolo.com/) using `mamba`, I would google "conda install fastapi" to find the [fastapi install instructions for conda](https://anaconda.org/conda-forge/fastapi) and then just rewrite it like so:
 
-Conda is effective at installing packages and system dependencies for them. However, it is relatively slow. To overcome this issue, a much faster version of `conda`, called [`mamba`](https://github.com/mamba-org/mamba), has been developed. Install `mamba` now. **Hint**: you will probably need to specify the [channel](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html) to install it from.
+```shell
+# Instead of this:
+# conda install -c conda-forge fastapi
 
-**Q11. What is the output of `mamba -V`?**
+# Use this:
+mamba install -c conda-forge fastapi
+```
 
-### Conda environments
+### Mamba environments
 
-`mamba` / `conda` can create independent, self-contained package environments. This allows users to have multiple versions of packages and programming languages installed simultaneously without conflicts. 
+`mamba` (like `conda`) can create independent, self-contained package environments. This allows users to have multiple versions of packages and programming languages installed simultaneously without conflicts. 
 
-When you begin using `mamba` / `conda`, you will be in the `(base)` environment. It is not advisable to install packages into this environment as this can cause a variety of issues and will eventually slow down `mamba` / `conda` performance. 
+When you begin using `mamba` / `conda`, you will be in the `(base)` environment. It is not advisable to install packages into this environment as this can cause a variety of conflicts and will eventually slow down `mamba` / `conda` performance. 
 
 1. Create a new `mamba` environment called "py27" with python 2.7 installed in it. **Note** read the [docs](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) for further guidance -- but make sure to use `mamba` instead of `conda`.  
 2. Activate your new environment with:
 
 ```shell
-conda activate py27
+mamba activate py27
 ```
 
 3. **Q12. What is the output of `which python`?**
 4. Return to your `(base)` environment with:
 
 ```shell
-conda deactivate
+mamba deactivate
 ```
 
 5. **Q13. What is the output of `which python` now?**
@@ -218,7 +223,7 @@ conda deactivate
 
 Use what you've learned in the previous steps to set up your environment for RNA-Seq analysis with `salmon`.
 
-1. Using `mamba`, install `salmon` version `1.4.0` into a new environment called `salmonEnv` **Hint**: you will need both the `bioconda` and `conda-forge` channels. **Hint 2**: check out the documentation [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#installing-packages) to see how to specify a particular version of a package (just replace `conda` with `mamba` when you run it yourself).
+1. Using `mamba`, install `salmon` version `1.4.0` into a new environment called `salmonEnv` **Hint**: you will need to provide the `bioconda` channel to `mamba` in order for it to find the package. **Hint 2**: check out the documentation [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#installing-packages) to see how to specify a particular version of a package (just replace `conda` with `mamba` when you run it yourself).
 2. Activate `salmonEnv`.
 3. **Q14. What is the output of `salmon -h`?**
 
@@ -249,22 +254,22 @@ Then, answer:
 - **Q20. What is `|` doing?** -- **Hint** using `|` in Linux is called "piping"  
 - **Q21. What is a `.fa` file? What is this file format used for?**
 
-3. Index the *Arabidopsis thaliana* transcriptome using `salmon`. You can find the `salmon` docs with detailed instructions for building transcriptome indices ([here](https://web.archive.org/web/20210118043821/https://salmon.readthedocs.io/en/latest/salmon.html#preparing-transcriptome-indices-mapping-based-mode)). **Note**: The index should take ~ 4-5 minutes to build and you do NOT need `decoys.txt`, so leave that part out. Adding extra arguments may also cause your machine to run out of memory -- use only the arguments in the tutorial (minus the `decoys.txt` part). **Note**: You should not need more than 450MB to build this index (last tested on Ubuntu 22.04 LTS and 20.04 LTS in June 2022). If you find that you are running out of memory (or storage), please double check your index command to ensure it uses the correct file with the `-t` flag. If you still find issues during this step, contact Henry and he will assist you.
+3. Index the *Arabidopsis thaliana* transcriptome using `salmon`. You can find the `salmon` docs with detailed instructions for building transcriptome indices ([here](https://web.archive.org/web/20210118043821/https://salmon.readthedocs.io/en/latest/salmon.html#preparing-transcriptome-indices-mapping-based-mode)). **Note**: The index should take ~ 4-5 minutes to build and you do NOT need `decoys.txt`, so leave that part out. Adding extra arguments may also cause your machine to run out of memory -- use only the arguments in the tutorial (minus the `decoys.txt` part). **Note**: You should not need more than 450MB to build this index (last tested on Ubuntu 22.04 LTS and 20.04 LTS in November 2022). If you find that you are running out of memory (or storage), please double check your index command to ensure it uses the correct file with the `-t` flag. If you still find issues during this step, contact Henry and he will assist you.
 
 ### Part 2: Quantify RNA-Seq data
 
-Now that we have build the transcriptome index for *arabidopsis thaliana*, we can download some RNA-Seq data and quantify it!
+Now that we have built the transcriptome index for *arabidopsis thaliana*, we can download some RNA-Seq data and quantify it!
 
 Publicly-available RNA-Seq data is typically stored in the Sequence Read Archive (SRA), a public database hosted by the U.S. NIH/NCBI. While the Gene Expression Omnibus (GEO) is used to access processed datasets, the SRA is where raw sequencing reads can be found. NCBI provides a series of computational tools for downloading these data and converting them into the correct format for analysis. 
 
-1. Install `sra-tools` in your `salmonEnv` environment using `mamba`. 
-2. Download the RNA-Seq sample "SRR074122" using `prefetch` (part of the SRA tools). The documentation for `prefetch` can be found [here](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=prefetch). **Q22. What format are the downloaded sequencing reads in?** (If this step produces an error, provide the error message in your answer to **Q22** and then you can also try downloading the file directly from [here](https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR074122/SRR074122) -- note that you can use this file with the succeeding steps.)
+1. Install `sra-tools` v2.11.0 in your `salmonEnv` environment using `mamba`. 
+2. Download the RNA-Seq sample "SRR074122" using `prefetch` (part of the SRA tools). The documentation for `prefetch` can be found [here](https://web.archive.org/web/20220620111907/https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=prefetch) or by running `prefetch -h`. **Q22. What format are the downloaded sequencing reads in?** (If this step produces an error, provide the error message in your answer to **Q22** and then you can also try downloading the file directly from [here](https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR074122/SRR074122) -- note that you can use this file with the succeeding steps.)
 3. Disk (storage) space is a concern when working with large sequencing files. Check your remaining disk space with the `df -h` command. The remaining space will be listed under `/dev/root`. **Q23. What is the total size of the disk?**, **Q24. How much space is remaining on the disk?**
 4. Convert the reads to `fastq` format using this command: `fastq-dump SRR074122`. This should produce an error. Considering the previous question, answer **Q25. What went wrong?** (if you didn't encounter any errors, let Henry know and continue onward.)
-5. Delete the partially-generated `.fastq` file. Then, modify the previous `fastq-dump SRR074122` command so that the issue in **Q25** no longer occurs. The documentation for `fastq-dump` is [here](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=fastq-dump). **Q26: What was your solution?** **Hint**: consider **Q16**. 
-6. Once you have successfully converted your reads, use `salmon` to quantify them (using "mapping-based mode"). Set the output folder name as `transcripts_quant/`. Use the transcriptome index for *Arabidopsis thaliana* which you built in the [previous section](#part-1-generating-the-transcriptome-index). **Note** These reads are single-end, so make sure you are using the appropriate command for single-ended reads. **Note 2**: You should not need more than 610MB of RAM for this step (last tested on Ubuntu 22.04 LTS and 20.04 LTS in June 2022). If you find that you are using more than that, please re-check the index command you used in the previous section. If you still find issues during this step, contact Henry and he will assist you.
+5. Delete the partially-generated `.fastq` file. Then, modify the previous `fastq-dump SRR074122` command so that the issue in **Q25** no longer occurs. The documentation for `fastq-dump` can be accessed [here](https://web.archive.org/web/20220606012457/https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=fastq-dump) or by running `fastq-dump -h`. **Q26: What was your solution?** **Hint**: consider **Q16**. 
+6. Once you have successfully converted your reads, use `salmon` to quantify them (using "mapping-based mode" -- see documentation [here](https://web.archive.org/web/20210118043821/https://salmon.readthedocs.io/en/latest/salmon.html#quantifying-in-mapping-based-mode)). Set the output folder name as `transcripts_quant/`. Use the transcriptome index for *Arabidopsis thaliana* which you built in the [previous section](#part-1-generating-the-transcriptome-index). **Note** These reads are single-end, so make sure you are using the appropriate command for single-ended reads. **Note 2**: You should not need more than 610MB of RAM for this step (last tested on Ubuntu 22.04 LTS and 20.04 LTS in November 2022). If you find that you are using more than that, please re-check the index command you used in the previous section. If you still find issues during this step, contact Henry and he will assist you. **Note 3**: If you are unsure about what to put for the library type, check the docs [here](https://web.archive.org/web/20210118043821/https://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype).
 
 ## Wrap-up
 
-To complete the project, commit and push your `answers.md` to your fork. Then, let Henry know (and send him the link to your fork and anything required to access your AWS server as `serveruser`). He will access the server, check your configuration and your `quant.sf` file -- and will certify completion of the miniproject if everything is correct.
+To complete the project, commit and push your `answers.md` to your fork. Then, let Henry know (and send him the link to your fork and anything required to access your AWS server as `serveruser`). He will access the server, check your configuration and your `quant.sf` file -- and will certify completion of the skill assessment if everything is correct.
 
