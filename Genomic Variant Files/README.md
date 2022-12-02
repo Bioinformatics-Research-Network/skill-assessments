@@ -4,7 +4,7 @@ Pre-requisites: [Linux for Bioinformatics](https://github.com/Bioinformatics-Res
 
 ## Instructions
 
-The purpose of this challenge is to understand and utilize some of the most common filetypes generated from genomic data: [VCF](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf) and [MAF](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/). The purpose of this challenge is to learn to interpret variant calls when presented in these formats and to manipulate these file types. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`. You will need to send your answers to Henry in order to complete this training.
+The purpose of this challenge is to understand and utilize some of the most common filetypes generated from genomic data: [Variant Call Format (VCF)](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf) and [Mutation Annotation Format (MAF)](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/). The purpose of this challenge is to learn to interpret variant calls when presented in these formats and to manipulate these file types. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`. You will need to send your answers to Henry in order to complete this training.
 
 For example, if I asked:
 
@@ -18,7 +18,7 @@ This would be what I expect to see in answers.md:
 See an example in answer_example.md within this directory.
 
 
-## VCF files
+## Variant Call Format (VCF) files
 
 After reading about the VCF file format at the link above, we recommend spending some time looking through a VCF file to understand the various fields. In this module we will utilize a VCF file generated as part of the 1000 Genomes Project pilot analyses that can be obtained from this ftp site: `http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/CEU.exon.2010_03.genotypes.vcf.gz`. Go ahead and download this file using `wget` or `curl` and spend some time looking through it.
 
