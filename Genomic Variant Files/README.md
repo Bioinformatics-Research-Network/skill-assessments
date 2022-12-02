@@ -61,6 +61,6 @@ Note that the file we are using does not contain allele frequency information as
 **Q4: How many positions are there with AC=1. Note that you cannot simply count lines since the output of `bcftools filter ` includdes the VCF header lines. You will need to use `bcftools query` to get this number**
 
 
-
-
+### Altering a VCF file
+Sometimes you may work with a tool that requires a different chromosome notation. Use the provided [map file](chr_name_conv.txt) to convert from number only chromosome notation to chromosomes with the prfix 'chr'. You can do this using the `bcftools annotate` function with the `--rename-chrs` flag. Save the converted VCF file as `CEU.exon.2010_03.genotypes.chr_conv.vcf.gz` and include it in your forked repository. Be sure to compress the file before saving it!
 
