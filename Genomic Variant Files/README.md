@@ -1,10 +1,10 @@
 # Working with Genomic Variant Files
 
-Pre-requisites: [Linux for Bioinformatics](https://github.com/Bioinformatics-Research-Network/skill-assessments/tree/main/Linux%20for%20Bioinformatics)
-
+Pre-requisites: [Linux for Bioinformatics](https://github.com/Bioinformatics-Research-Network/skill-assessments/tree/main/Linux%20for%20Bioinformatics) and 
+[R Programming](https://github.com/Bioinformatics-Research-Network/skill-assessments/tree/main/R%20Programming)
 ## Instructions
 
-The purpose of this challenge is to understand and utilize some of the most common filetypes generated from genomic data: Variant Call Format (VCF) and Mutation Annotation Format (MAF). The purpose of this challenge is to learn to interpret variant calls when presented in these formats and to manipulate these file types. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`. You will need to send your answers to Henry in order to complete this training.
+The purpose of this module is to understand and utilize some of the most common filetypes generated from genomic data: Variant Call Format (VCF) and Mutation Annotation Format (MAF). The purpose of this challenge is to learn to interpret variant calls when presented in these formats and to manipulate these file types. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`. You will need to send your answers to Henry in order to complete this training.
 
 For example, if I asked:
 
@@ -20,7 +20,7 @@ See an example in answer_example.md within this directory.
 
 ## Variant Call Format (VCF) files
 
-Variant Call Format, or VCF, is a standardized text file format to represent variant calls including SNPs, indels, and structural variants. Please start by reading through the [VCF spec file](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf).
+Variant Call Format, or VCF, is a standardized text file format to represent variant calls including SNPs, indels, and structural variants. Please start by reading through the [VCF specirications](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf).
 
 In this module we will utilize a VCF file generated as part of the 1000 Genomes Project pilot analyses that can be obtained from this ftp site: `http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/CEU.exon.2010_03.genotypes.vcf.gz`. Go ahead and download this file using `wget` or `curl` and spend some time looking through it.
 
@@ -73,4 +73,6 @@ Sometimes you may work with a tool that requires a different chromosome notation
 
 
 ## Mutation Annotation Format (MAF) files
-The Mutation Annotation Format, or MAF, is a tab-delimited text file format used to describe somatic DNA mutations. Be careful not to confuse it with Multiple Alignment Format files. Please start by reading more about this file format [here](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/). The fileds contained in a MAF file can vary so pay careful attention to the header column.
+The Mutation Annotation Format, or MAF, is a tab-delimited text file format used to describe somatic DNA mutations. Be careful not to confuse it with Multiple Alignment Format files. Please start by reading more about the [MAF file specifications](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/). The fileds contained in a MAF file can vary so pay careful attention to the header column.
+
+You will use the R package [maftools](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html) to obtain and work with MAF files in this section of the module. Follow [these instructions](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html#4_Installation) to install maftools.
