@@ -75,4 +75,25 @@ Sometimes you may work with a tool that requires a different chromosome notation
 ## Mutation Annotation Format (MAF) files
 The Mutation Annotation Format, or MAF, is a tab-delimited text file format used to describe somatic DNA mutations. Be careful not to confuse it with Multiple Alignment Format files. Please start by reading more about the [MAF file specifications](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/). The fileds contained in a MAF file can vary so pay careful attention to the header column.
 
-You will use the R package [maftools](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html) to obtain and work with MAF files in this section of the module. Follow [these instructions](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html#4_Installation) to install maftools.
+You will use the R package [`maftools`](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html) to obtain and work with MAF files in this section of the module. Follow [these instructions](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html#4_Installation) to install `maftools`.
+
+### Read and summarize a MAF file
+We will utilize an MAF file containing somatic variants from low grade glioma (LGG) samples generated as part of [The Cancer Genome Atlas Program (TCGA)](https://doi.org/10.1016/j.cels.2018.03.002) for this portion of the module. Use the following commands to load the MAF file into R:
+```
+library(maftools)
+
+# view available TCGA cohorts, check that LGG is there
+tcgaAvailable()
+# load the available LGG cohort
+lgg = tcgaLoad(study = "LGG")
+# view a summary of this file
+lgg
+```
+
+**Q6: What is the median number of variants per sample in this data set?**
+
+### Generating plots with maftools
+`maftoos` has a number of built in functions to generate useful plots. Generate the following plots and send them to Henry to complete this training:
+1. An oncoplot of the top five mutated genes
+2. A boxplot of the transistion-to-transversion ratio
+3. A plot comparing the mutation load in this LGG cohort to other TCGA cohorts. Use log scale.
