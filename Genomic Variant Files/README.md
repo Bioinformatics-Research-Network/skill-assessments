@@ -4,7 +4,7 @@ Pre-requisites: [Linux for Bioinformatics](https://github.com/Bioinformatics-Res
 
 ## Instructions
 
-The purpose of this challenge is to understand and utilize some of the most common filetypes generated from genomic data: [Variant Call Format (VCF)](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf) and [Mutation Annotation Format (MAF)](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/). The purpose of this challenge is to learn to interpret variant calls when presented in these formats and to manipulate these file types. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`. You will need to send your answers to Henry in order to complete this training.
+The purpose of this challenge is to understand and utilize some of the most common filetypes generated from genomic data: Variant Call Format (VCF) and Mutation Annotation Format (MAF). The purpose of this challenge is to learn to interpret variant calls when presented in these formats and to manipulate these file types. Wherever you are asked to answer a question, answer it in a separate markdown file called `answers.md`. You will need to send your answers to Henry in order to complete this training.
 
 For example, if I asked:
 
@@ -20,7 +20,9 @@ See an example in answer_example.md within this directory.
 
 ## Variant Call Format (VCF) files
 
-After reading about the VCF file format at the link above, we recommend spending some time looking through a VCF file to understand the various fields. In this module we will utilize a VCF file generated as part of the 1000 Genomes Project pilot analyses that can be obtained from this ftp site: `http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/CEU.exon.2010_03.genotypes.vcf.gz`. Go ahead and download this file using `wget` or `curl` and spend some time looking through it.
+Variant Call Format, or VCF, is a standardized text file format to represent variant calls including SNPs, indels, and structural variants. Please start by reading through the [VCF spec file](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf).
+
+In this module we will utilize a VCF file generated as part of the 1000 Genomes Project pilot analyses that can be obtained from this ftp site: `http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/CEU.exon.2010_03.genotypes.vcf.gz`. Go ahead and download this file using `wget` or `curl` and spend some time looking through it.
 
 Due to their unique formatting, we recommend using tools specifically designed to work with genomic variant files instead of `sed/awk` or other default Linux commands. For this tutorial, we will use `tabix`, which is included in the [htslib](https://github.com/samtools/htslib) package and [bcftools](https://github.com/samtools/bcftools) to manipulate our VCF file. Go ahead and install these tools either from the linked repositories or by following [these](http://www.htslib.org/download/) instructions.
 
@@ -68,3 +70,7 @@ Note that the file we are using does not contain allele frequency information as
 ### Altering a VCF file
 Sometimes you may work with a tool that requires a different chromosome notation. Use the provided [map file](chr_name_conv.txt) to convert from number only chromosome notation to chromosomes with the prfix 'chr'. You can do this using the `bcftools annotate` function with the `--rename-chrs` flag. Save the converted VCF file as `CEU.exon.2010_03.genotypes.chr_conv.vcf.gz` and include it in your forked repository. Be sure to compress the file before saving it!
 
+
+
+## Mutation Annotation Format (MAF) files
+The Mutation Annotation Format, or MAF, is a tab-delimited text file format used to describe somatic DNA mutations. Be careful not to confuse it with Multiple Alignment Format files. Please start by reading more about this file format [here](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/). The fileds contained in a MAF file can vary so pay careful attention to the header column.
