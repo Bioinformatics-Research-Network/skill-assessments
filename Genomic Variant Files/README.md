@@ -93,7 +93,7 @@ lgg
 **Q6: What is the median number of variants per sample in this data set?**
 
 ### Generating plots with maftools
-`maftoos` has a number of built in functions to generate useful plots. Generate the following plots and send them to Henry to complete this training:
+`maftools` has a number of built in functions to generate useful plots. Generate the following plots and send them to Henry to complete this training:
 1. An oncoplot of the top five mutated genes
 2. A boxplot of the transistion-to-transversion ratio
 3. A plot comparing the mutation load in this LGG cohort to other TCGA cohorts. Use log scale.
