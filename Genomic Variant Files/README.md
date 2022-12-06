@@ -60,7 +60,7 @@ If you want to extract multiple fields from the VCF file at once, you can includ
 Note that the file we are using does not contain allele frequency information as it only contains samples from one sequencing center and thus is a subset of a larger data set. However, it does contain allele counts, annotated as `AC`. We can use `bcftools filter` to select only positions with an allele count of one:
 >bcftools filter -i AC=1 CEU.exon.2010_03.genotypes.vcf.gz 
 
-**Q4: How many positions are there with AC=1. Note that you cannot simply count lines since the output of `bcftools filter ` includdes the VCF header lines. You will need to use `bcftools query` to get this number**
+**Q4: How many positions are there with AC=1? Note that you cannot simply count lines since the output of `bcftools filter ` includdes the VCF header lines. You will need to use `bcftools query` to get this number.**
 
 `bcftools` also has it's own function for gathering statistics on a file, including information about the transition to transversion ratio, singleton stats, allele frequency statistics, quality scores, indel distribution, substitution types, and depth distributions. Run `bcftools stats` on the sample VCF file and spend some time looking through the report. Note that not all sections area pplicable to this file.
 
