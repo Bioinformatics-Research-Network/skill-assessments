@@ -20,7 +20,7 @@ See an example in answer_example.md within this directory.
 
 ## Variant Call Format (VCF) files
 
-Variant Call Format, or VCF, is a standardized text file format to represent variant calls including SNPs, indels, and structural variants. [This paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3137218/) describes the VCF file format and you can find the official VCF specirications [here](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf). [This video](https://www.youtube.com/watch?v=Qgb4Ja5VnUQ) provides a brief introduction to VCF files. Please spend some time using any or all of the linked resources to familiarize yourself with the VCF file format.
+Variant Call Format, or VCF, is a standardized text file format to represent variant calls including SNPs, indels, and structural variants. This [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3137218/) describes the VCF file format and you can find the official VCF specirications [here](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf). This [video](https://www.youtube.com/watch?v=Qgb4Ja5VnUQ) provides a brief introduction to VCF files. Please spend some time using any or all of the linked resources to familiarize yourself with the VCF file format.
 
 In this module we will utilize a VCF file generated as part of the 1000 Genomes Project pilot analyses that can be obtained from this ftp site: `http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/CEU.exon.2010_03.genotypes.vcf.gz`. Go ahead and download this file using `wget` or `curl` and spend some time looking through it.
 
@@ -29,7 +29,7 @@ Due to their unique formatting, we recommend using tools specifically designed t
 mamba install -c bioconda htslib
 mamba install -c bioconda bcftools
 ```
-[This introduction](https://samtools.github.io/bcftools/howtos/index.html) to using `bcftools` will help you understand how to extract and filter information from VCF files. The links under "Tips and Tricks" in the left-hand menu are especially useful.
+This [introduction](https://samtools.github.io/bcftools/howtos/index.html) to using `bcftools` will help you understand how to extract and filter information from VCF files. The links under "Tips and Tricks" in the left-hand menu are especially useful.
 
 ### Index a VCF file
 
@@ -79,7 +79,7 @@ Sometimes you may work with a tool that requires a different chromosome notation
 ## Mutation Annotation Format (MAF) files
 The Mutation Annotation Format, or MAF, is a tab-delimited text file format used to describe somatic DNA mutations. Be careful not to confuse it with Multiple Alignment Format files. Please start by reading more about the [MAF file specifications](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/). The fileds contained in a MAF file can vary so pay careful attention to the header column.
 
-You will use the R package [`maftools`](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html) to obtain and work with MAF files in this section of the module. Follow [these instructions](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html#4_Installation) to install `maftools`.
+You will use the R package [`maftools`](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html) to obtain and work with MAF files in this section of the module. Follow these [instructions](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html#4_Installation) to install `maftools`.
 
 ### Read and summarize a MAF file
 We will utilize an MAF file containing somatic variants from low grade glioma (LGG) samples generated as part of [The Cancer Genome Atlas Program (TCGA)](https://doi.org/10.1016/j.cels.2018.03.002) for this portion of the module. Use the following commands to load the MAF file into R:
