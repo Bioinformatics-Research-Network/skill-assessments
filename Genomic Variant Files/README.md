@@ -8,11 +8,11 @@ The purpose of this module is to understand and utilize some of the most common 
 
 For example, if I asked:
 
-    Q1. What are the different line types and how are they designaged in a VCF file?
+    Q1. What are the different line types and how are they designated in a VCF file?
 
 This would be what I expect to see in answers.md:
 
-    Q1: What are the different line types and how are they designaged in a VCF file?
+    Q1: What are the different line types and how are they designated in a VCF file?
     A: VCF files contain meta-information lines prefixed with '##', a header line prefixed with '#', and data lines each containing information about a position in the genome and genotype information on samples for each position (with the text fields separated by tabs).
 
 See an example in answer_example.md within this directory.
@@ -20,11 +20,11 @@ See an example in answer_example.md within this directory.
 
 ## Variant Call Format (VCF) files
 
-Variant Call Format, or VCF, is a standardized text file format to represent variant calls including SNPs, indels, and structural variants. This [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3137218/) describes the VCF file format and you can find the official VCF specirications [here](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf). This [video](https://www.youtube.com/watch?v=Qgb4Ja5VnUQ) provides a brief introduction to VCF files. Please spend some time using any or all of the linked resources to familiarize yourself with the VCF file format.
+Variant Call Format, or VCF, is a standardized text file format to represent variant calls including SNPs, indels, and structural variants. This [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3137218/) describes the VCF file format and you can find the official VCF specifications [here](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf). This [video](https://www.youtube.com/watch?v=Qgb4Ja5VnUQ) provides a brief introduction to VCF files. Please spend some time using the linked resources to familiarize yourself with the VCF file format.
 
 In this module we will utilize a VCF file generated as part of the 1000 Genomes Project pilot analyses that can be obtained from this ftp site: `http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/CEU.exon.2010_03.genotypes.vcf.gz`. Go ahead and download this file using `wget` or `curl` and spend some time looking through it.
 
-Due to their unique formatting, we recommend using tools specifically designed to work with genomic variant files instead of `sed/awk` or other default Linux commands. For this tutorial, we will use `tabix`, which is included in the [htslib](https://github.com/samtools/htslib) package and [bcftools](https://github.com/samtools/bcftools) to manipulate our VCF file. Go ahead and install these tools using mamba:
+Due to their unique formatting, we recommend using tools specifically designed to work with genomic variant files instead of `sed/awk` or other default Linux commands. For this tutorial, we will use `tabix`, which is included in the [htslib](https://github.com/samtools/htslib) package and [bcftools](https://github.com/samtools/bcftools) to manipulate our VCF file. Go ahead and install these tools using mamba (if you need to install `mamba`, please see their [install documentation](https://mamba.readthedocs.io/en/latest/installation.html):
 ```
 mamba install -c bioconda htslib
 mamba install -c bioconda bcftools
@@ -52,7 +52,7 @@ Now that you have indexed your VCF file, lets use `bcftools` to get some statist
 **Q2: How many samples are included in the VCF file?**
 
 
-To print the position of a varaint (without the chromosome) we use the following command:
+To print the position of a variant (without the chromosome) we use the following command:
 >bcftools query -f '%POS\n' CEU.exon.2010_03.genotypes.vcf.gz
 
 **Q3: How many positions are there total in the VCF file?**
@@ -64,7 +64,7 @@ If you want to extract multiple fields from the VCF file at once, you can includ
 Note that the file we are using does not contain allele frequency information as it only contains samples from one sequencing center and thus is a subset of a larger data set. However, it does contain allele counts, annotated as `AC`. We can use `bcftools filter` to select only positions with an allele count of one:
 >bcftools filter -i AC=1 CEU.exon.2010_03.genotypes.vcf.gz 
 
-**Q4: How many positions are there with AC=1? Note that you cannot simply count lines since the output of `bcftools filter ` includdes the VCF header lines. You will need to use `bcftools query` to get this number.**
+**Q4: How many positions are there with AC=1? Note that you cannot simply count lines since the output of `bcftools filter ` includes the VCF header lines. You will need to use `bcftools query` to get this number.**
 
 `bcftools` also has it's own function for gathering statistics on a file, including information about the transition to transversion ratio, singleton stats, allele frequency statistics, quality scores, indel distribution, substitution types, and depth distributions. Run `bcftools stats` on the sample VCF file and spend some time looking through the report. Note that not all sections area pplicable to this file.
 
@@ -77,7 +77,7 @@ Sometimes you may work with a tool that requires a different chromosome notation
 
 
 ## Mutation Annotation Format (MAF) files
-The Mutation Annotation Format, or MAF, is a tab-delimited text file format used to describe somatic DNA mutations. Be careful not to confuse it with Multiple Alignment Format files. Please start by reading more about the [MAF file specifications](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/). The fileds contained in a MAF file can vary so pay careful attention to the header column.
+The Mutation Annotation Format, or MAF, is a tab-delimited text file format used to describe somatic DNA mutations. Be careful not to confuse it with Multiple Alignment Format files. Please start by reading more about the [MAF file specifications](https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/). The files contained in a MAF file can vary so pay careful attention to the header column.
 
 You will use the R package [`maftools`](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html) to obtain and work with MAF files in this section of the module. Follow these [instructions](https://bioconductor.org/packages/release/bioc/vignettes/maftools/inst/doc/maftools.html#4_Installation) to install `maftools`.
 
@@ -108,6 +108,6 @@ To complete the project, commit and push your `answers.md` and the files contain
 
 ## Acknowledgements
 
-This training module was written by Sasha Scott ([@ajs3nj](https://github.com/ajs3nj)) at Sage Bionetworks.
+This training module was written by Sasha Scott ([@ajs3nj](https://github.com/ajs3nj)) at Sage Bionetworks. Funding was provided by the Children's Tumor Foundation ([CTF-2021-04-007](https://doi.org/10.48105/pc.gr.150998)).
 
 ![Sage Logo](Sage_Logo.png)
