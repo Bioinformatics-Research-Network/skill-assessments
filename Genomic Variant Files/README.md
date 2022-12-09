@@ -108,6 +108,6 @@ To complete the project, commit and push your `answers.md` and the files contain
 
 ## Acknowledgements
 
-This training module was written by Sasha Scott ([@ajs3nj](https://github.com/ajs3nj)) at Sage Bionetworks.
+This training module was written by Sasha Scott ([@ajs3nj](https://github.com/ajs3nj)) at Sage Bionetworks. Funding was provided by the Children's Tumor Foundation ([CTF-2021-04-007](https://doi.org/10.48105/pc.gr.150998)).
 
 ![Sage Logo](Sage_Logo.png)
