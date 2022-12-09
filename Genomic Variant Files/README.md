@@ -101,3 +101,11 @@ lgg
 1. An oncoplot of the top five mutated genes
 2. A boxplot of the transistion-to-transversion ratio
 3. A plot comparing the mutation load in this LGG cohort to other TCGA cohorts. Use log scale.
+
+## Wrap-up
+
+To complete the project, commit and push your `answers.md` and the files containing your three plots to your fork. Then, let Henry know (and send him the link to your fork). He will check your answers and will certify completion of the skill assessment if everything is correct.
+
+## Acknowledgements
+
+This training module was written by Sasha Scott ([@ajs3nj](https://github.com/ajs3nj)) at Sage Bionetworks. 
