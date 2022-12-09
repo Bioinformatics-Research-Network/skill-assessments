@@ -20,7 +20,7 @@ See an example in answer_example.md within this directory.
 
 ## Variant Call Format (VCF) files
 
-Variant Call Format, or VCF, is a standardized text file format to represent variant calls including SNPs, indels, and structural variants. Please start by reading through the [VCF specirications](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf).
+Variant Call Format, or VCF, is a standardized text file format to represent variant calls including SNPs, indels, and structural variants. [This paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3137218/) describes the VCF file format and you can find the official VCF specirications [here](https://github.com/samtools/hts-specs/blob/master/VCFv4.3.pdf). [This short video](https://www.youtube.com/watch?v=Qgb4Ja5VnUQ) provides a brief introduction to VCF files. Please spend some time using any or all of the linked resources to familiarize yourself with the VCF file format.
 
 In this module we will utilize a VCF file generated as part of the 1000 Genomes Project pilot analyses that can be obtained from this ftp site: `http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/CEU.exon.2010_03.genotypes.vcf.gz`. Go ahead and download this file using `wget` or `curl` and spend some time looking through it.
 
