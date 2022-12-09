@@ -24,7 +24,11 @@ Variant Call Format, or VCF, is a standardized text file format to represent var
 
 In this module we will utilize a VCF file generated as part of the 1000 Genomes Project pilot analyses that can be obtained from this ftp site: `http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/CEU.exon.2010_03.genotypes.vcf.gz`. Go ahead and download this file using `wget` or `curl` and spend some time looking through it.
 
-Due to their unique formatting, we recommend using tools specifically designed to work with genomic variant files instead of `sed/awk` or other default Linux commands. For this tutorial, we will use `tabix`, which is included in the [htslib](https://github.com/samtools/htslib) package and [bcftools](https://github.com/samtools/bcftools) to manipulate our VCF file. Go ahead and install these tools either from the linked repositories or by following [these](http://www.htslib.org/download/) instructions.
+Due to their unique formatting, we recommend using tools specifically designed to work with genomic variant files instead of `sed/awk` or other default Linux commands. For this tutorial, we will use `tabix`, which is included in the [htslib](https://github.com/samtools/htslib) package and [bcftools](https://github.com/samtools/bcftools) to manipulate our VCF file. Go ahead and install these tools using mamba:
+```
+mamba install -c bioconda htslib
+mamba install -c bioconda bcftools
+```
 
 
 ### Index a VCF file
