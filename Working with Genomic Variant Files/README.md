@@ -1,4 +1,4 @@
-# Working with Genomic Variant Files <img src="Sage_Logo.png" align="right" alt="Sage Logo" width="200" style = "border: none; float: right;">
+# Working with Genomic Variant Files <img src="Sage_Logo.png" align="right" alt="Sage Logo" width="240" style = "border: none; float: right;">
 
 
 Pre-requisites: [Linux for Bioinformatics](https://github.com/Bioinformatics-Research-Network/skill-assessments/tree/main/Linux%20for%20Bioinformatics) and 
