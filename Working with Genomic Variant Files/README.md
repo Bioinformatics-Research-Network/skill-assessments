@@ -10,7 +10,6 @@ This training module was written by Sasha Scott ([@ajs3nj](https://github.com/aj
 
 ---
 
-
 ## Computational requirements
 
 The computing requirements for this assessment are low and it can be completed on a standard laptop or tablet.
