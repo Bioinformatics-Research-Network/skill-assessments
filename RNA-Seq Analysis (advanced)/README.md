@@ -1,6 +1,7 @@
-# Advanced RNA-Seq Analysis
+# RNA-seq analysis (Advanced)
 
-Pre-requisites: [R Programming](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20Programming), [R for Data Science](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science), [Basic RNA-Seq Analysis]()
+Pre-requisites: [R Programming](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20Programming), [R for Data Science](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science), [Differential Gene Expression Analysis (Basic)](https://github.com/Bioinformatics-Research-Network/skill-assessments/tree/main/RNA-Seq%20Analysis)
+
 
 ## Instructions
 

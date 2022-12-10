@@ -1,31 +1,42 @@
-# Basic RNA-Seq Analysis
+# RNA-Seq Analysis
 
 Pre-requisites: [R Programming](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20Programming), [R for Data Science](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science)
 
-## Instructions
+## Overview
 
-The purpose of this challenge is to complete a full RNA-Seq analysis, including interpretation of the results in a biological context. You should pretend that you are making a report that you want to show to a biomedical collaborator who does not know bioinformatics. You should have an introduction in which you outline the research question, a results section in which you present your results, and a discussion section in which you interpret the results. It should be formatted in an aesthetic way that is easy to follow. 
-Pre-requisite: [`R for Data Science/`](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science)
+The purpose of this challenge is to complete a full differential gene expression analysis, generating the relevant figures and tables which should accompany it. It should be formatted in an aesthetic way that is easy to follow. 
 
-Find an RNA-Seq dataset and perform differential gene expression analysis to determine the effect of some condition on gene expression. I would recommend finding a dataset from [recount2](https://jhubiostatistics.shinyapps.io/recount/), but you can also use [GEO](https://www.ncbi.nlm.nih.gov/geo/) as long as you are certain that you have obtained raw read count data and not normalized data. Additionally, your dataset must have at least 3 replicates in two or more biological conditions of interest (e.g., 3 cancer samples vs 3 normal samples). For example, `ERP010786` (in recount2) would be is a suitable study. To get the data for this study, simply download the read counts from recount2 (the `RSE_v2` file) -- this can be loaded into R with the `load()` command. The data will be loaded in a `RangedSummarizedExperiment` object -- see the resources below to learn how to use this for the analysis. 
+### The data: Ewing sarcoma RNA-seq
 
-**NOTE**: ERP010786 was an example, so you are required to choose a different dataset for your analysis. 
+Ewing sarcoma is a pediatric bone cancer which arises from the fusion of the EWSR1 and FLI1 genes ("EWSR1-FLI1" fusion oncogene).
 
-If you do not see the information about the biological conditions of the samples in your experiment, you can check SRA for that information. Here is the SRA page for ERP010786: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=ERP010786
+Recently, some have proposed therapies for Ewing sarcoma which suppress EWSR1-FLI1. However, it is not clear yet how suppressing EWSR1-FLI1 impacts the transcriptomic state of Ewing sarcoma tumor cells.
 
-Then, do the following in R Markdown:
-1. Use DESeq2 for the differential gene expression analysis. Find the DEGs between your conditions of interest.
-	- Make sure to add an interactable table of DEGs using a package such as [DT](https://rstudio.github.io/DT/)
-2. Create a PCA plot colored by the condition of interest
-3. Create a Volcano Plot
-4. Create a heatmap with the top 10 over-expressed DEGs, and top 10 under-expressed DEGs
-	- Top is defined by DEGs having the lowest adjusted p-values
-5. Do GSEA on the results and plot the top 5 pathways
-	- For your ranking metric, use the `stat` column from your `DESeq2` results
-	- Top is defined by pathways with the lowest adjusted p-values
-6. Make sure to export your R Markdown to HTML and that it comes out looking correctly -- example of an HTML export of RMarkdown: https://static-html-pages.s3-us-west-2.amazonaws.com/merck-project/RloopCorrelationSummary.html
-	- Also include a floating TOC, and foldable code snippets that are folded by default
-7. What do the results tell you about your conditions of interest? What is the biological meaning of these results? What future experiments could you perform? (These questions don't have an exact right answer, just about thinking through the meaning of the results). 
+You have been provided with a Ewing sarcoma RNA-seq data set (`EwS.rds`). The data is in `RangedSummarizedExperiment` format (read about this format [here](https://www.bioconductor.org/packages/devel/bioc/vignettes/SummarizedExperiment/inst/doc/SummarizedExperiment.html)). The metadata includes a column `condition` with two levels (1) `shEF1` (EWSR1-FLI1 knock-down) and (2) `shCTR` (control). There are 3 shCTR samples and 4 shEF1 samples.
+
+```R
+> rse <- readRDS("EwS.rds")
+> rse$condition
+[1] "shCTR" "shCTR" "shCTR" "shEF1" "shEF1" "shEF1" "shEF1"
+```
+
+Your task is to perform a differential gene expression (DGE) analysis to determine what genes, and biological pathways / processes, are altered in EWSR1-FLI1 knock-down (`shEF1`) vs control (`shCTR`).
+
+## Requirements
+
+To complete this task, you should perform the DGE analysis using [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html) and generate these tables and figures in an RMarkdown file (`.Rmd`):
+
+1. PCA summarizing the sample-level variance within the data set.
+2. MA Plot showing the relationship between mean count and log2 fold change.
+3. Table listing the differentially-expressed genes (DEGs)
+4. Volcano plot showing all DGE results.
+5. Heatmap showing the top 10 over- and under-expressed DEGs.
+6. Enrichment analysis showing the top over- and under-expressed KEGG pathways.
+    - Create a figure & a table to summarize the results
+
+Style and presentation requirements are the same as in [R for Data Science](https://github.com/Bioinformatics-Research-Network/training-requirements/tree/main/R%20for%20Data%20Science).
+
+**Render your RMarkdown file (`.Rmd`) to HTML (`.html`) and commit/push both to your fork of the skill assessment repo. Once ready, send Henry the link to your fork.**
 
 
 ### Additional requirements
@@ -60,8 +71,23 @@ my_data %>%
     ggsave("my_plot.png")
 ```
 
+## Tips
+
+### R Environment
+
+Here are the R packages that are likely to be useful in completing this task:
+
+1. [tidyverse](https://www.tidyverse.org/)
+    - Includes [ggplot2](https://ggplot2.tidyverse.org/), [dplyr](https://dplyr.tidyverse.org/), [readr](https://readr.tidyverse.org/), etc.
+2. [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)
+3. [EnhancedVolcano](https://bioconductor.org/packages/release/bioc/html/EnhancedVolcano.html)
+4. [pheatmap](https://cran.r-project.org/web/packages/pheatmap/index.html)
+5. [enrichR](https://cran.r-project.org/web/packages/enrichR/index.html)
+6. [msigdbr](https://cran.r-project.org/web/packages/msigdbr/index.html)
+7. [clusterProfiler](https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html)
 
 ### Useful learning resources:
+
 1. BIG Club’s RNA-Seq workshop (goes through all the required tasks in weeks 6-9): https://www.bigbioinformatics.org/r-and-rnaseq-analysis
 2. Bioconductor RNA-Seq tutorial: https://bioconductor.org/packages/release/workflows/html/rnaseqGene.html
 3. DataCamp RNA-Seq tutorial: https://learn.datacamp.com/courses/rna-seq-with-bioconductor-in-r
