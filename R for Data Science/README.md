@@ -43,7 +43,7 @@ Now, without further guidance, use your `R` Data Science skills (and appropriate
 
 For each question, you should generate summary visualizations (preferrably interactive ones) that demonstrate your answer to each question. Additionally, the analysis must be user-friendly for a non-programmer and should intuitively convey the insights you uncovered. Use `markdown` to ensure that the text is organized and readable. Finally, the notbook should describe your reasoning for the statistical tests you chose to use.
 
-Once you are done, export your `RMarkdown` to an `.html` file and share it with Henry.
+Once you are done, export your `RMarkdown` to an `.html` file. Commit and push both the `.Rmd` and `.html` to your fork of the skill assessment repo -- then share the link with Henry.
 
 ### Additional requirements
 
