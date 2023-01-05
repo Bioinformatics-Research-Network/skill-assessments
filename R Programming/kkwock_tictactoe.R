@@ -1,15 +1,15 @@
 # install.packages("styler")
-#library(styler)
+# library(styler)
 
 # Stalemate Test
-# stale <- structure(c("O", "X", "O", "X", "X", "O", "X", "O", "X"), dim = c(3L, 3L)) # for testing 
+# stale <- structure(c("O", "X", "O", "X", "X", "O", "X", "O", ""), dim = c(3L, 3L)) # for testing 
 
 #---- Functions ----# 
 # NPC random space filler
-random.fill <- function(mat, choice){
-  empty.idx <- which(mat=='', mat)
-  mat[sample(empty.idx, 1)] <- choice
-  return(mat)
+random.fill <- function(x, choice){
+  empty.idx <- which(x=='', x)
+  x[unlist(sample(as.list(empty.idx), 1))] <- choice
+  return(x)
 }
 
 # Win check
@@ -88,8 +88,6 @@ player.check <- function(){
 }
 
 # ---- Tic Tac Toe ----# 
-# Create an Empty Matrix
-mat <- matrix('', nrow=3, ncol=3, byrow=T)
 players <- c("X", "O")
 
 # Choose X or O
@@ -97,14 +95,18 @@ user.choice <- player.check()
 
 # X goes first, O goes second
 npc.choice <- if(user.choice == 'O') 'X' else 'O'
+
+# Create an Empty Matrix
+mat <- matrix('', nrow=3, ncol=3, byrow=T)
 win = F
-round = 0
+turn = 0
+total.turns = 9
 
 if(user.choice=='O'){
   print("You go second.")
-  while(win == F & round < 5){
-    round = round + 1
+  while(win == F & turn < total.turns){
     # npc first
+    turn = turn + 1
     print("NPC's turn")
     mat <- random.fill(mat, npc.choice)
     print(mat)
@@ -112,22 +114,25 @@ if(user.choice=='O'){
     results <- win.check(mat)
     win <- results[1]
     
-    # user fill 
-    if(win == F) print("Your turn") else print("Game Over")
-    mat <- user.input(mat)
-    print(mat)
-    
+    # user fill second
+    if(win == F & turn < total.turns){
+      turn = turn + 1
+      print("Your turn")
+      mat <- user.input(mat)
+      print(mat)
+    }
+  
     results <- win.check(mat)
     win <- results[1]
   }
 }else if(user.choice=='X'){
   print("You go first.")
-  while(win == F & round < 5){
-    round = round + 1
+  while(win == F & turn < total.turns){
     # print board
     print(mat)
     
     # user fill 
+    turn = turn + 1
     print("Your turn")
     mat <- user.input(mat)
     print(mat)
@@ -136,8 +141,12 @@ if(user.choice=='O'){
     win <- results[1]
     
     # npc second
-    if(win == F) print("Your turn") else print("Game Over")
-    mat <- random.fill(mat, npc.choice)
+    if(win == F & turn < total.turns){
+      turn = turn + 1
+      print("NPC's turn")
+      mat <- random.fill(mat, npc.choice)
+      print(mat)
+    }
     
     results <- win.check(mat)
     win <- results[1]
@@ -146,7 +155,8 @@ if(user.choice=='O'){
 
 # Results
 if(win==T){
+  print("Game Over")
   print(paste((players[results[2]]), "Wins")  )
-}else if(win == F & round == 5){
+}else if(win == F & turn == total.turns){
   print("Stalemate")
 }
