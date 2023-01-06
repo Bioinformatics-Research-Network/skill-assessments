@@ -13,7 +13,7 @@ Create and deploy a `dash` (or `shiny`) application for exploring the gapminder 
 - Change the data type displayed in the plot
 - Change the year being shown
 4. Improve the layout and UI so that it is easy and relatively intuitive to use
-5. Deploy your app (using a free account) to `Heroku` and send Henry the link. 
+5. Deploy your app (using a free account) to `Heroku` or shinyapps.io and send Henry the link. 
 
 Here is an example of a `dash` app: https://dash-app-test-hm.herokuapp.com/
 
