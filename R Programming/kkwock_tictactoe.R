@@ -7,7 +7,7 @@
 #---- Functions ----# 
 # NPC random space filler
 random.fill <- function(x, choice){
-  empty.idx <- which(x=='', x)
+  empty.idx <- which(x=='')
   x[unlist(sample(as.list(empty.idx), 1))] <- choice
   return(x)
 }
@@ -51,18 +51,34 @@ n.check <- function(x, pos){
   return(x)
 }
 
+# confirm check 
+confirm.check <- function(x){
+  while(!(x %in% c("Y", "y", "N", "n"))){
+    print("Input invalid. Please type y (yes) or n (no) to confirm move.")
+    x <- readline(prompt=paste0("Place your move on Row ", rn, ", Column ",cn ,"? (y/n): "))
+  }
+  return(x)
+}
+
 # Empty space check
 user.input <- function(mat){
   # check if input is within range (1-3)
-  rn <- n.check(as.numeric(readline(prompt="Which row? (1-3): ")), 'row')
-  cn <- n.check(as.numeric(readline(prompt="Which column? (1-3): ")), 'col')
-  
-  while(mat[rn, cn] != ''){ 
-    # if field is not empty, ask user to input again
-    print("Space is already filled. Choose another.")
-    print(mat)
+  confirm <- 'n'
+  while(confirm == 'n'){
     rn <- n.check(as.numeric(readline(prompt="Which row? (1-3): ")), 'row')
     cn <- n.check(as.numeric(readline(prompt="Which column? (1-3): ")), 'col')
+    confirm <- confirm.check(readline(prompt=paste0("Place your move on Row ", rn, ", Column ",cn ,"? (y/n): ")))
+  }
+  while(mat[rn, cn] != ''){ 
+    # if field is not empty, ask user to input again
+    confirm <- 'n'
+    print("Space is already filled. Choose another.")
+    print(mat)
+    while(confirm == 'n'){
+      rn <- n.check(as.numeric(readline(prompt="Which row? (1-3): ")), 'row')
+      cn <- n.check(as.numeric(readline(prompt="Which column? (1-3): ")), 'col')
+      confirm <- confirm.check(readline(prompt=paste0("Place your move on Row ", rn, ", Column ",cn ,"? (y/n): ")))
+    }
   }
   # fill input into matrix
   mat[rn, cn] <- user.choice
