@@ -13,7 +13,7 @@ random.fill <- function(x, choice){
 }
 
 # Win check
-win.check <- function(mat){
+is.win <- function(mat){
   # win combinations
   win.combos <- list(c(1,2,3), c(4,5,6), c(7,8,9), # col
                      c(1,4,7), c(2,5,8), c(3,7,9), # row
@@ -52,7 +52,7 @@ n.check <- function(x, pos){
 }
 
 # confirm check 
-confirm.check <- function(x){
+confirm.check <- function(x, rn, cn){
   while(!(x %in% c("Y", "y", "N", "n"))){
     print("Input invalid. Please type y (yes) or n (no) to confirm move.")
     x <- readline(prompt=paste0("Place your move on Row ", rn, ", Column ",cn ,"? (y/n): "))
@@ -67,17 +67,19 @@ user.input <- function(mat){
   while(confirm == 'n'){
     rn <- n.check(as.numeric(readline(prompt="Which row? (1-3): ")), 'row')
     cn <- n.check(as.numeric(readline(prompt="Which column? (1-3): ")), 'col')
-    confirm <- confirm.check(readline(prompt=paste0("Place your move on Row ", rn, ", Column ",cn ,"? (y/n): ")))
+    confirm <- confirm.check(readline(prompt=paste0("Place your move on Row ", rn, 
+                                                    ", Column ",cn ,"? (y/n): ")))
   }
   while(mat[rn, cn] != ''){ 
     # if field is not empty, ask user to input again
     confirm <- 'n'
     print("Space is already filled. Choose another.")
-    print(mat)
+    # print(mat)
     while(confirm == 'n'){
       rn <- n.check(as.numeric(readline(prompt="Which row? (1-3): ")), 'row')
       cn <- n.check(as.numeric(readline(prompt="Which column? (1-3): ")), 'col')
-      confirm <- confirm.check(readline(prompt=paste0("Place your move on Row ", rn, ", Column ",cn ,"? (y/n): ")))
+      confirm <- confirm.check(readline(prompt=paste0("Place your move on Row ", rn, 
+                                                      ", Column ",cn ,"? (y/n): ")))
     }
   }
   # fill input into matrix
@@ -103,6 +105,11 @@ player.check <- function(){
   return(user.choice)
 }
 
+# Print Round
+print.round <- function(x){
+  cat("\n\n#### Round", as.character(x), "####\n\n")
+}
+
 # ---- Tic Tac Toe ----# 
 players <- c("X", "O")
 
@@ -115,64 +122,70 @@ npc.choice <- if(user.choice == 'O') 'X' else 'O'
 # Create an Empty Matrix
 mat <- matrix('', nrow=3, ncol=3, byrow=T)
 win = F
-turn = 0
+r = turn = 0
 total.turns = 9
 
 if(user.choice=='O'){
-  print("You go second.")
+  cat("\nO goes second.\n")
+  
   while(win == F & turn < total.turns){
-    # npc first
+    # NPC Goes first
     turn = turn + 1
-    print("NPC's turn")
+    r <- r + 1
+    print.round(r)
     mat <- random.fill(mat, npc.choice)
-    print(mat)
-    
-    results <- win.check(mat)
+    results <- is.win(mat)
     win <- results[1]
     
     # user fill second
     if(win == F & turn < total.turns){
-      turn = turn + 1
-      print("Your turn")
-      mat <- user.input(mat)
       print(mat)
+      turn = turn + 1
+      cat("\nYour turn\n")
+      mat <- user.input(mat)
+      # print(mat)
     }
   
-    results <- win.check(mat)
+    results <- is.win(mat)
     win <- results[1]
   }
 }else if(user.choice=='X'){
-  print("You go first.")
+  print("\nX goes first.\n\n")
   while(win == F & turn < total.turns){
     # print board
+    r <- r + 1
+    print.round(r)
+    
     print(mat)
     
     # user fill 
     turn = turn + 1
-    print("Your turn")
+    cat("\nYour turn\n")
     mat <- user.input(mat)
-    print(mat)
+    # print(mat)
     
-    results <- win.check(mat)
+    results <- is.win(mat)
     win <- results[1]
     
     # npc second
     if(win == F & turn < total.turns){
       turn = turn + 1
-      print("NPC's turn")
+      # print("NPC's turn") # Print Round?
       mat <- random.fill(mat, npc.choice)
-      print(mat)
+      # print(mat)
     }
     
-    results <- win.check(mat)
+    results <- is.win(mat)
     win <- results[1]
   }
 }
 
 # Results
 if(win==T){
-  print("Game Over")
-  print(paste((players[results[2]]), "Wins")  )
+  print(mat)
+  cat("\nGame Over\n")
+  cat(paste((players[results[2]]), "Wins")  )
 }else if(win == F & turn == total.turns){
-  print("Stalemate")
+  print(mat)
+  cat("\n\nStalemate")
 }
