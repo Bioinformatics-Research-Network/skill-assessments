@@ -52,10 +52,9 @@ n.check <- function(x, pos){
 }
 
 # confirm check 
-confirm.check <- function(x, rn, cn){
+confirm.check <- function(x){
   while(!(x %in% c("Y", "y", "N", "n"))){
-    print("Input invalid. Please type y (yes) or n (no) to confirm move.")
-    x <- readline(prompt=paste0("Place your move on Row ", rn, ", Column ",cn ,"? (y/n): "))
+    x <- readline(prompt="Input invalid. Please type y (yes) or n (no) to confirm move: ")
   }
   return(x)
 }
@@ -150,7 +149,7 @@ if(user.choice=='O'){
     win <- results[1]
   }
 }else if(user.choice=='X'){
-  print("\nX goes first.\n\n")
+  cat("\nX goes first.\n")
   while(win == F & turn < total.turns){
     # print board
     r <- r + 1
