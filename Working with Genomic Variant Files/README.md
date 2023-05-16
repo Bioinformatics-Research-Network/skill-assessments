@@ -135,7 +135,7 @@ lgg
 
 **Q6: What is the median number of variants per sample in this data set?**
 
-### Generating plots with maftools\
+### Generating plots with maftools
 
 `maftools` has a number of built in functions to generate useful plots. Generate the following plots and send them to Henry to complete this training:
 1. An oncoplot of the top five mutated genes
