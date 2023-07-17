@@ -1,0 +1,250 @@
+---
+title: "R for Data Science Skills Assessment"
+author: "Taylor Carter"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE
+)
+```
+
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(ggpubr)
+library(plotly)
+library(data.table)
+library(rstatix)
+library(countrycode)
+```
+
+# Part I
+
+## Question 1
+```{r}
+data <- data.table(read.csv("gapminder_clean.csv")) # used read.csv to leverage ggpubr plotting
+data <- data %>% mutate(continent = countrycode(
+  sourcevar = Country.Name,
+  origin = "country.name",
+  destination = "continent"
+))
+data[is.na(continent), continent := "Unknown"]
+```
+
+## Question 2 & 3
+```{r, fig.height=5, fig.width=7}
+data %>%
+  filter(Year == 1962) %>%
+  ggscatter(
+    x = grep("emissions", colnames(data), value = TRUE),
+    y = "gdpPercap",
+    add = "reg.line",
+    cor.coef = TRUE
+  ) +
+  labs(
+    x = "CO2 emissions (metric tons per capita)",
+    y = "GDP per Capita"
+  )
+```
+
+## Question 4
+```{r}
+maxCorrYear <- data %>%
+  group_by(Year) %>%
+  mutate(
+    correlation = cor(
+      CO2.emissions..metric.tons.per.capita.,
+      gdpPercap,
+      use = "complete.obs"
+    )
+  ) %>%
+  ungroup() %>%
+  filter(correlation == max(correlation, na.rm = TRUE))
+```
+
+## Question 5
+```{r, fig.height=5, fig.width=7}
+p <- maxCorrYear %>%
+  ggscatter(
+    x = grep("emissions", colnames(data), value = TRUE),
+    y = "gdpPercap",
+    size = "pop",
+    color = "continent"
+  ) +
+  labs(
+    x = "CO2 emissions (metric tons per capita)",
+    y = "GDP per Capita"
+  )
+
+ggplotly(p)
+```
+
+# Part II
+## Question 1
+#### Calculate the mean energy usage of each country over the given years
+```{r}
+country_energy_use <- data %>%
+  group_by(Country.Name) %>%
+  reframe(
+    mean_energy_use = na.omit(
+      mean(
+        Energy.use..kg.of.oil.equivalent.per.capita.,
+        na.rm = TRUE
+      )
+    )
+  )
+
+energy_use <- merge(
+  country_energy_use,
+  data[!duplicated(Country.Name), c("Country.Name", "continent"), with = FALSE]
+)
+```
+#### Assess normality assumption
+```{r}
+normality <- energy_use %>%
+  group_by(continent) %>%
+  summarise(
+    statistic = shapiro.test(mean_energy_use)$statistic,
+    p_value = shapiro.test(mean_energy_use)$p.value
+  )
+
+normality_tbl <- normality %>%
+  ggtexttable(
+    rows = NULL,
+    theme = ttheme("blank")
+  ) %>%
+  tab_add_hline(at.row = c(1, 2), row.side = "top", linewidth = 2) %>%
+  tab_add_hline(at.row = nrow(normality) + 1, row.side = "bottom", linewidth = 2)
+
+normality_tbl
+```
+
+Result: The energy usage within each continent deviates significantly from a normal distribution
+
+#### Assess equal variance assumption
+```{r, comment=''}
+variance <- oneway.test(mean_energy_use ~ continent, data = energy_use, var.equal = FALSE)
+variance
+```
+Result: The small p-value indicates that the variances in energy usage across each continent are significantly different. Thus, we have unequal variances
+
+#### Perform pairwise comparisons and plot results
+```{r}
+pairwise_result <- pairwise_wilcox_test(
+  data = energy_use,
+  formula = mean_energy_use ~ continent,
+  p.adjust.method = "none"
+) %>%
+  rename("p.signif" = "p.adj.signif") %>%
+  select(group1, group2, p.signif)
+
+tbl <- pairwise_result %>%
+  ggtexttable(
+    rows = NULL,
+    theme = ttheme("blank")
+  ) %>%
+  tab_add_hline(at.row = c(1, 2), row.side = "top", linewidth = 2) %>%
+  tab_add_hline(at.row = nrow(pairwise_result) + 1, row.side = "bottom", linewidth = 2)
+```
+
+```{r}
+x_axis_order <- energy_use %>%
+  group_by(continent) %>%
+  summarize(
+    median = median(mean_energy_use, na.rm = TRUE)
+  ) %>%
+  arrange(median) %>%
+  pull(continent)
+```
+
+```{r, fig.height=5, fig.width=12}
+p <- energy_use %>%
+  ggboxplot(
+    x = "continent",
+    y = "mean_energy_use",
+    color = "continent",
+    add = "jitter",
+    order = x_axis_order,
+    outlier.shape = NA,
+  ) +
+  labs(
+    title = "Energy Use (kg oil equivalent per capita) by Continent",
+    x = NULL,
+    y = "Mean energy use (kg of oil equivalent per capita)"
+  )
+
+p <- ggpar(p, legend = "none")
+ggarrange(p, tbl, ncol = 2, nrow = 1)
+```
+The figure above indicates that Europe has the highest per capita energy usage with Africa and Oceania tied for the lowest per capita energy usage. The energy usage of the Americas, Asia, and entities not associated with a continent fall somewhere in between  
+
+## Question 2
+```{r, fig.height=5, fig.width=7}
+country_percent_imports <- data %>%
+  filter(continent %in% c("Europe", "Asia") & Year >= 1990) %>%
+  group_by(Country.Name) %>%
+  reframe(
+    mean_import_perc = na.omit(
+      mean(
+        Imports.of.goods.and.services....of.GDP.,
+        na.rm = TRUE
+      )
+    )
+  )
+
+percent_imports <- merge(
+  country_percent_imports,
+  data[!duplicated(Country.Name), c("Country.Name", "continent"), with = FALSE]
+)
+
+percent_imports %>%
+  ggboxplot(
+    x = "continent",
+    y = "mean_import_perc",
+    add = "jitter",
+    xlab = FALSE,
+    ylab = "Mean import percentage of goods and services",
+    outlier.shape = NA
+  ) +
+  stat_compare_means()
+```
+
+As you can see from the Wilcoxon p-value, there is no significant difference between Europe and Asia with respect to the mean import percentage in the years after 1990
+
+## Question 3
+```{r}
+country_highest_pop <- data %>%
+  group_by(Country.Name) %>%
+  summarize(
+    mean = mean(pop, na.rm = TRUE)
+  ) %>%
+  filter(mean == max(mean, na.rm = TRUE)) %>%
+  pull(Country.Name)
+```
+
+```{r, comment=''}
+country_highest_pop
+```
+
+## Question 4
+```{r}
+country_highest_life <- data %>%
+  filter(Year >= 1962 & Year <= 2007) %>%
+  select(Country.Name, Year, Life.expectancy.at.birth..total..years.) %>%
+  spread(Year, Life.expectancy.at.birth..total..years.) %>%
+  mutate(life_expectancy_increase = `2007` - `1962`) %>%
+  filter(life_expectancy_increase == max(life_expectancy_increase, na.rm = TRUE)) %>%
+  pull(Country.Name)
+```
+
+```{r, comment=''}
+country_highest_life
+```
