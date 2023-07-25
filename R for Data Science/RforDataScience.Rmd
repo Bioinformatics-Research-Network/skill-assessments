@@ -1,0 +1,227 @@
+---
+title: "My first Rmarkdown"
+output: html_document
+date: "2023-07-18"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+Attempting to do some problem solving.
+
+```{r include=FALSE}
+library(tidyverse)
+library(plotly)
+```
+
+1. Read in the gapminder_clean.csv data as a tibble using read_csv.
+
+2. Filter the data to include only rows where Year is 1962 and then make a scatter plot comparing 'CO2 emissions (metric tons per capita)' and gdpPercap for the filtered data.
+
+```{r}
+data <- read.csv("C:/Users/User/Desktop/Github/RforDataScience/gapminder_clean.csv")
+y1962 <- data %>% 
+  filter(Year == 1962) %>% 
+  filter(!is.na(gdpPercap)) %>%
+  filter(!is.na(CO2.emissions..metric.tons.per.capita.)) %>%
+  as_tibble()
+
+head(y1962)
+
+plot1962 <- ggplot(y1962, aes(x=CO2.emissions..metric.tons.per.capita., y=gdpPercap))+
+  geom_point()
+
+ggplotly(plot1962)
+
+```
+
+3. On the filtered data, calculate the correlation of 'CO2 emissions (metric tons per capita)' and gdpPercap. What is the correlation and associated p value?
+
+```{r}
+gdpvar <- y1962["gdpPercap"][[1]]
+co2var <- y1962["CO2.emissions..metric.tons.per.capita."][[1]]
+cor.test(co2var, gdpvar, 
+         method="pearson")
+
+
+```
+For calculating the correlation between two continuous variables, Pearson's product-moment correlation seemed appropriate.
+
+
+4. On the unfiltered data, answer "In what year is the correlation between 'CO2 emissions (metric tons per capita)' and gdpPercap the strongest?" Filter the dataset to that year for the next step...
+
+```{r}
+cordata <- data.frame()
+
+years <- data %>% 
+  filter(!is.na(gdpPercap)) %>%
+  group_by(Year) %>% summarise(avg=mean(gdpPercap))
+## used for counting how many years.
+
+
+for (i in 1:lengths(years[1])){
+
+  cyear <- years[i,1][[1]]
+  moddata <- data %>%
+    filter(Year == cyear)
+  gdpvar <- moddata["gdpPercap"][[1]]
+  co2var <- moddata["CO2.emissions..metric.tons.per.capita."][[1]]
+  cor <- cor.test(co2var, gdpvar, method="pearson")[[4]]
+  pval <- cor.test(co2var, gdpvar, method="pearson")[[3]]
+  
+  corresult <- data.frame(year = c(cyear), correlation=c(cor), 'p value'=c(pval))
+  
+  cordata <- rbind(cordata,corresult)
+    
+}
+rownames(cordata) <- NULL
+
+cordata <- cordata %>% arrange(desc(correlation))
+
+cordata
+```
+
+5. Using plotly, create an interactive scatter plot comparing 'CO2 emissions (metric tons per capita)' and gdpPercap, where the point size is determined by pop (population) and the color is determined by the continent. You can easily convert any ggplot plot to a plotly plot using the ggplotly() command.
+
+```{r}
+
+y1967 <-  data %>% filter(Year == 1967) %>% filter(!is.na(gdpPercap))
+
+plot67 <- ggplot(y1967, aes(x=CO2.emissions..metric.tons.per.capita., y=gdpPercap, size=pop, color=continent))+
+  geom_point()+
+  xlab("CO2 emissions (metric tons per capita)")+
+  ylab("GDP per capita")+
+  labs(title="Correlation between CO2 emission and GDP per capita", size = "")
+
+
+ggplotly(plot67)
+
+```
+
+
+1. What is the relationship between continent and 'Energy use (kg of oil equivalent per capita)'? (stats test needed)
+
+```{r}
+cont_energy <- data %>%
+  filter(!is.na(Electric.power.consumption..kWh.per.capita.)) %>%
+  filter(continent!="") %>%
+  subset(select = c("Electric.power.consumption..kWh.per.capita.", "continent"))
+
+elec<- cont_energy$Electric.power.consumption..kWh.per.capita.
+
+cont<- cont_energy$continent
+
+africa_energy <- cont_energy$Electric.power.consumption..kWh.per.capita.[cont_energy$continent=="Africa"]
+
+america_energy <- cont_energy$Electric.power.consumption..kWh.per.capita.[cont_energy$continent=="Americas"]
+
+asia_energy <- cont_energy$Electric.power.consumption..kWh.per.capita.[cont_energy$continent=="Asia"]
+
+europe_energy <- cont_energy$Electric.power.consumption..kWh.per.capita.[cont_energy$continent=="Europe"]
+
+oceania_energy <- cont_energy$Electric.power.consumption..kWh.per.capita.[cont_energy$continent=="Oceania"]
+
+shapiro.test(africa_energy)
+
+kruskal.test(Electric.power.consumption..kWh.per.capita.~continent, data=cont_energy)
+
+pconsume <- ggplot(cont_energy, aes(x=continent,y=Electric.power.consumption..kWh.per.capita.))+
+  geom_boxplot()+
+  ylab("Electric power consumption kWh per capita")+
+  xlab("Continents")
+  
+ggplotly(pconsume)
+```
+```{r}
+library(dunn.test)
+dunn.test(elec, cont, method = "bonferroni")
+
+```
+There is no correlation test for a continuous variable and a nominal variable. Therefore, I checked whether there were statistically significant differences among the continents.
+
+Kruskal Wallis test was appropriate as it did not pass normality test. Further analysis were performed using Dunn's test.
+
+Differences in electrical power consumption among different continents are statistically significant. (Kruskal Wallis test / Dunn's test)
+
+While there were significant differences among the continents, there were 2 exceptions :
+
+No significant difference between Asia's power consumption and that of Americas were found.
+
+No significant difference between Europe's power consumption and that of Oceania were found.
+
+
+
+2. Is there a significant difference between Europe and Asia with respect to 'Imports of goods and services (% of GDP)' in the years after 1990? (stats test needed)
+
+
+```{r}
+AsEuImport <- data %>% 
+  filter(Year > 1990) %>%
+  filter(((continent=="Europe") | (continent=="Asia"))) %>%
+  subset(select= c("continent","Imports.of.goods.and.services....of.GDP.")) %>%
+  filter(!is.na(Imports.of.goods.and.services....of.GDP.))
+
+shapiro.test(AsEuImport$Imports.of.goods.and.services....of.GDP.[AsEuImport$continent=="Asia"])
+
+## shapiro test failed
+
+wilcox.test(Imports.of.goods.and.services....of.GDP.~continent, data=AsEuImport)
+```
+The data failed to pass normality test. Therefore Wilcox test were used.
+
+There is no statistical difference between Europe and Asia with respect to 'Imports of goods and services (% of GDP)' in the years after 1990.
+
+3. What is the country (or countries) that has the highest 'Population density (people per sq. km of land area)' across all years? (i.e., which country has the highest average ranking in this category across each time point in the dataset?)
+
+
+```{r}
+
+mdensity <- data %>%
+  group_by(Year) %>%
+  slice_max(Population.density..people.per.sq..km.of.land.area., n=1) %>%
+  subset(select=c("Year", "Country.Name", "Population.density..people.per.sq..km.of.land.area."))
+
+mdensity
+
+```
+
+
+```{r}
+
+mdensity2 <- data %>%
+  group_by(Year) %>%
+  slice_max(Population.density..people.per.sq..km.of.land.area., n=8) %>%
+  subset(select=c("Year", "Country.Name", "Population.density..people.per.sq..km.of.land.area."))
+
+mdenplot <- ggplot(mdensity2, aes(x=Year, y=Population.density..people.per.sq..km.of.land.area., color=Country.Name))+
+  geom_point()
+
+ggplotly(mdenplot)
+
+```
+Monaco and China have the highest 'Population density (people per sq. km of land area)' across all years.
+
+4. What country (or countries) has shown the greatest increase in 'Life expectancy at birth, total (years)' between 1962 and 2007?
+
+```{r}
+
+birth1962 <- data %>%
+  filter(Year==1962) %>%
+  subset(select=c("Country.Name", "Life.expectancy.at.birth..total..years.")) %>%
+  rename('Life expectancy 1962' = Life.expectancy.at.birth..total..years.)
+
+birth2007 <- data %>%
+  filter(Year==2007) %>%
+  subset(select= c("Country.Name", "Life.expectancy.at.birth..total..years.")) %>%
+  rename('Life expectancy 2007' = Life.expectancy.at.birth..total..years.)
+
+merged <- merge(birth1962,birth2007, by = "Country.Name") %>%
+  mutate(`Life expectancy increase` = `Life expectancy 2007` - `Life expectancy 1962`) %>%
+  arrange(desc(`Life expectancy increase`))
+
+head(merged)
+
+```
