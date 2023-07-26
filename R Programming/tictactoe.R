@@ -112,32 +112,16 @@ compturn <- function(board, noboard, co_c, co_l){
 playwin <- function(pl_l){
   # check whether player won or not.
   result <- case_when(
-    
-    (1 %in% pl_l) ~ (case_when(
-      (2 %in% pl_l && 3 %in% pl_l) ~ 1,
-      (4 %in% pl_l && 7 %in% pl_l) ~ 1,
-      (5 %in% pl_l && 9 %in% pl_l) ~ 1,
-      TRUE ~ 0
-      )),
-    (2 %in% pl_l) ~ 
-      (if (5 %in% pl_l && 8 %in% pl_l){
-        1
-      }else {0}),
-    (3 %in% pl_l) ~ (case_when(
-      (6 %in% pl_l && 9 %in% pl_l) ~ 1,
-      (5 %in% pl_l && 7 %in% pl_l) ~ 1,
-      TRUE ~ 0
-      )),
-    (4 %in% pl_l) ~
-      (if (5 %in% pl_l && 6 %in% pl_l){
-        1
-      }else {0}),
-    (7 %in% pl_l) ~ 
-      (if (8 %in% pl_l && 9 %in% pl_l){
-        1
-      }else {0}),
+    (1 %in% pl_l && 2 %in% pl_l && 3 %in% pl_l) ~ 1,
+    (1 %in% pl_l && 4 %in% pl_l && 7 %in% pl_l) ~ 1,
+    (1 %in% pl_l && 5 %in% pl_l && 9 %in% pl_l) ~ 1,
+    (2 %in% pl_l && 5 %in% pl_l && 8 %in% pl_l) ~ 1,
+    (3 %in% pl_l && 6 %in% pl_l && 9 %in% pl_l) ~ 1,
+    (3 %in% pl_l && 5 %in% pl_l && 7 %in% pl_l) ~ 1,
+    (4 %in% pl_l && 5 %in% pl_l && 6 %in% pl_l) ~ 1,
+    (7 %in% pl_l && 8 %in% pl_l && 9 %in% pl_l) ~ 1,
     TRUE ~ 0
-    )
+  )
   return(result)
 }
 
